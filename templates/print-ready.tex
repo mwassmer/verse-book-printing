@@ -1,0 +1,303 @@
+% Print-Ready Template for Book of Verse
+% Includes crop marks, bleed, and CMYK-ready settings
+\documentclass[11pt,openright,twoside]{book}
+
+%% ============================================================
+%% PAGE GEOMETRY - 7" x 10" with 0.125" bleed
+%% ============================================================
+\usepackage[
+    paperwidth=7.25in,      % 7" + 0.125" bleed on each side
+    paperheight=10.25in,    % 10" + 0.125" bleed on each side
+    layoutwidth=7in,
+    layoutheight=10in,
+    layouthoffset=0.125in,
+    layoutvoffset=0.125in,
+    inner=0.875in,
+    outer=0.75in,
+    top=0.875in,
+    bottom=1in,
+    headheight=14pt,
+    headsep=0.25in,
+    footskip=0.4in,
+    showcrop,               % Show crop marks
+]{geometry}
+
+%% ============================================================
+%% FONTS
+%% ============================================================
+\usepackage{fontspec}
+
+\IfFontExistsTF{Source Serif 4}{
+    \setmainfont{Source Serif 4}
+}{
+    \setmainfont{Latin Modern Roman}
+}
+
+\IfFontExistsTF{Source Sans 3}{
+    \setsansfont{Source Sans 3}
+}{
+    \setsansfont{Latin Modern Sans}
+}
+
+\IfFontExistsTF{JetBrains Mono}{
+    \setmonofont{JetBrains Mono}[Scale=0.85]
+}{
+    \setmonofont{Latin Modern Mono}[Scale=0.85]
+}
+
+%% ============================================================
+%% COLORS (print-safe)
+%% ============================================================
+\usepackage{xcolor}
+
+% Using darker, print-safe colors
+\definecolor{verseblue}{RGB}{20, 70, 140}
+\definecolor{verseorange}{RGB}{200, 70, 30}
+\definecolor{versegray}{RGB}{50, 50, 55}
+\definecolor{codebg}{RGB}{240, 240, 240}
+\definecolor{warningbg}{RGB}{255, 240, 210}
+\definecolor{warningborder}{RGB}{200, 120, 0}
+\definecolor{notebg}{RGB}{220, 235, 250}
+\definecolor{noteborder}{RGB}{30, 120, 200}
+\definecolor{tipbg}{RGB}{225, 245, 225}
+\definecolor{tipborder}{RGB}{60, 150, 60}
+\definecolor{dangerbg}{RGB}{255, 230, 235}
+\definecolor{dangerborder}{RGB}{200, 50, 50}
+
+%% ============================================================
+%% HEADERS AND FOOTERS
+%% ============================================================
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\textit{\nouppercase{\leftmark}}}
+\fancyhead[RO]{\small\textit{\nouppercase{\rightmark}}}
+\fancyfoot[LE,RO]{\thepage}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% ============================================================
+%% CHAPTER STYLING
+%% ============================================================
+\titleformat{\part}[display]
+    {\centering\Huge\bfseries\sffamily\color{versegray}}
+    {\partname\ \thepart}
+    {20pt}
+    {\Huge}
+
+\titleformat{\chapter}[display]
+    {\normalfont\huge\bfseries\sffamily\color{versegray}}
+    {\chaptertitlename\ \thechapter}
+    {20pt}
+    {\Huge}
+
+\titleformat{\section}
+    {\normalfont\Large\bfseries\sffamily\color{versegray}}
+    {\thesection}
+    {1em}
+    {}
+
+\titleformat{\subsection}
+    {\normalfont\large\bfseries\sffamily\color{versegray}}
+    {\thesubsection}
+    {1em}
+    {}
+
+\titleformat{\subsubsection}
+    {\normalfont\normalsize\bfseries\sffamily}
+    {\thesubsubsection}
+    {1em}
+    {}
+
+%% ============================================================
+%% CODE BLOCKS
+%% ============================================================
+\usepackage{listings}
+\usepackage{tcolorbox}
+\tcbuselibrary{listings,skins,breakable}
+
+\lstdefinelanguage{verse}{
+    keywords={if, then, else, for, loop, case, return, break, defer, block, spawn, sync, race, rush, branch, set, var, module, using, where, class, struct, enum, interface, extends, implements, constructor, override, abstract, final, public, private, protected, internal, native, import, export, true, false, not, and, or, in, of, type, Self},
+    keywordstyle=\color{verseblue}\bfseries,
+    ndkeywords={int, float, string, logic, char, void, any, tuple, array, map, option, weak_map, rational, comparable, subtype, type},
+    ndkeywordstyle=\color{verseorange}\bfseries,
+    sensitive=true,
+    comment=[l]{\#},
+    commentstyle=\color{gray}\itshape,
+    stringstyle=\color{teal},
+    string=[b]",
+    showstringspaces=false,
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    tabsize=4,
+    frame=none,
+    backgroundcolor=\color{codebg},
+}
+
+\lstset{
+    language=verse,
+    basicstyle=\ttfamily\small,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=8pt,
+    breaklines=true,
+    showstringspaces=false,
+}
+
+%% ============================================================
+%% ADMONITION BOXES
+%% ============================================================
+\newtcolorbox{warningbox}{
+    colback=warningbg, colframe=warningborder,
+    boxrule=0pt, leftrule=4pt, arc=0pt, outer arc=0pt,
+    left=8pt, right=8pt, top=8pt, bottom=8pt, breakable,
+}
+
+\newtcolorbox{notebox}{
+    colback=notebg, colframe=noteborder,
+    boxrule=0pt, leftrule=4pt, arc=0pt, outer arc=0pt,
+    left=8pt, right=8pt, top=8pt, bottom=8pt, breakable,
+}
+
+\newtcolorbox{tipbox}{
+    colback=tipbg, colframe=tipborder,
+    boxrule=0pt, leftrule=4pt, arc=0pt, outer arc=0pt,
+    left=8pt, right=8pt, top=8pt, bottom=8pt, breakable,
+}
+
+\newtcolorbox{dangerbox}{
+    colback=dangerbg, colframe=dangerborder,
+    boxrule=0pt, leftrule=4pt, arc=0pt, outer arc=0pt,
+    left=8pt, right=8pt, top=8pt, bottom=8pt, breakable,
+}
+
+\newtcolorbox{infobox}{
+    colback=notebg, colframe=noteborder,
+    boxrule=0pt, leftrule=4pt, arc=0pt, outer arc=0pt,
+    left=8pt, right=8pt, top=8pt, bottom=8pt, breakable,
+}
+
+%% ============================================================
+%% TABLES
+%% ============================================================
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+
+%% ============================================================
+%% HYPERLINKS (for PDF navigation)
+%% ============================================================
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=false,       % No colored links for print
+    pdfborder={0 0 0},     % No link borders
+    pdftitle={Book of Verse},
+    pdfauthor={Epic Games},
+    bookmarksnumbered=true,
+}
+
+%% ============================================================
+%% MISC
+%% ============================================================
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{parskip}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\setlist{noitemsep, topsep=0.5em}
+
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{240,240,240}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+
+%% ============================================================
+%% DOCUMENT
+%% ============================================================
+\begin{document}
+
+\frontmatter
+
+% Half title
+\begin{titlepage}
+\centering
+\vspace*{3in}
+{\Huge\sffamily\bfseries Book of Verse}
+\vfill
+\end{titlepage}
+
+\cleardoublepage
+
+% Full title
+\begin{titlepage}
+\centering
+\vspace*{1.5in}
+{\Huge\sffamily\bfseries\color{versegray} Book of Verse}
+\vspace{0.5in}
+{\Large\itshape The Verse Programming Language}
+\vspace{1in}
+{\large Documentation by}\\[0.5em]
+{\Large Jan Vitek}\\[0.5em]
+{\normalsize and the Verse Team}
+\vspace{1.5in}
+{\large\sffamily Epic Games}
+\vfill
+{\small\itshape Premium Print Edition}\\
+{\small $date$}
+\end{titlepage}
+
+\cleardoublepage
+
+% Copyright
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\textbf{Book of Verse}\\[1em]
+Documentation for the Verse Programming Language\\[2em]
+Copyright \textcopyright\ Epic Games, Inc.\\[1em]
+Licensed under CC0-1.0 (Public Domain)\\[2em]
+Source: \url{https://github.com/verselang/book}\\[2em]
+\textit{Print-Ready Edition with Crop Marks}
+\end{center}
+\vfill
+\cleardoublepage
+
+\tableofcontents
+\cleardoublepage
+
+\mainmatter
+
+$body$
+
+\backmatter
+
+\cleardoublepage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\textsc{Colophon}\\[2em]
+This book was typeset using \LaTeX{} with XeLaTeX.\\[1em]
+Page size: 7\textquotedbl\ $\times$ 10\textquotedbl\\
+Includes 0.125\textquotedbl\ bleed on all sides.
+\end{center}
+\vfill
+
+\end{document}
