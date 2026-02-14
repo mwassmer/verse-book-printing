@@ -184,6 +184,52 @@
 \setlist{noitemsep, topsep=0.5em}
 
 %% ============================================================
+%% UNICODE FALLBACK FONTS (deferred to avoid microtype conflict)
+%% ============================================================
+\usepackage{newunicodechar}
+\newfontfamily\symbolfont{Segoe UI Symbol}
+\newfontfamily\emojifont{Segoe UI Emoji}
+\newfontfamily\cjkfont{Yu Gothic}
+
+\AtBeginDocument{
+% Check marks and ballot marks
+\newunicodechar{✓}{{\symbolfont ✓}}
+\newunicodechar{✔}{{\symbolfont ✔}}
+\newunicodechar{✗}{{\symbolfont ✗}}
+\newunicodechar{❌}{{\emojifont ❌}}
+% Warning and other symbols
+\newunicodechar{⚠}{{\symbolfont ⚠}}
+% Math and logic symbols
+\newunicodechar{≠}{{\symbolfont ≠}}
+\newunicodechar{≤}{{\symbolfont ≤}}
+\newunicodechar{⊂}{{\symbolfont ⊂}}
+\newunicodechar{⊆}{{\symbolfont ⊆}}
+\newunicodechar{±}{{\symbolfont ±}}
+% Arrows
+\newunicodechar{→}{{\symbolfont →}}
+% Subscript and superscript digits
+\newunicodechar{₀}{{\symbolfont ₀}}
+\newunicodechar{₁}{{\symbolfont ₁}}
+\newunicodechar{₂}{{\symbolfont ₂}}
+\newunicodechar{ₙ}{{\symbolfont ₙ}}
+\newunicodechar{³}{{\symbolfont ³}}
+% Multiplication and division
+\newunicodechar{×}{{\symbolfont ×}}
+\newunicodechar{÷}{{\symbolfont ÷}}
+% Greek letters
+\newunicodechar{π}{{\symbolfont π}}
+% CJK characters
+\newunicodechar{好}{{\cjkfont 好}}
+% Emoji
+\newunicodechar{😀}{{\emojifont 😀}}
+\newunicodechar{😸}{{\emojifont 😸}}
+\newunicodechar{📚}{{\emojifont 📚}}
+\newunicodechar{🐈}{{\emojifont 🐈}}
+% Variation selector (emoji presentation) - render as nothing
+\newunicodechar{️}{}
+}
+
+%% ============================================================
 %% PANDOC COMPATIBILITY
 %% ============================================================
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}

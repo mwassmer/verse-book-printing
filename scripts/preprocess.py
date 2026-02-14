@@ -98,24 +98,82 @@ def convert_admonitions(content: str) -> str:
     return admonition_pattern.sub(replace_admonition, content)
 
 
-def convert_cross_references(content: str, current_file: str) -> str:
+def build_filename_anchor_map() -> dict:
+    """Build a mapping from source filenames to their Pandoc anchor IDs.
+
+    Numbered chapters get explicit anchors like 'chapter-01'.
+    Unnumbered chapters get Pandoc auto-generated IDs from their title.
+    """
+    anchor_map = {}
+    chapter_num = 1
+
+    for filename, title, is_numbered in CHAPTERS:
+        if is_numbered:
+            anchor_map[filename] = f'chapter-{chapter_num:02d}'
+            chapter_num += 1
+        else:
+            # Pandoc auto-generates IDs from heading text: lowercase, spaces→hyphens
+            anchor_map[filename] = title.lower().replace(' ', '-')
+
+    return anchor_map
+
+
+# Corrections for broken section anchors in source docs where headings were
+# renamed or removed. Maps old anchor → correct anchor (without '#' prefix).
+BROKEN_ANCHOR_FIXES = {
+    'semicolons-vs-commas-sequences-and-tuples': 'semicolons-vs-commas',
+    'range-operator-restrictions': 'for-expressions',
+    'floating-point-keys': 'floats',
+    'recursive-targets': 'issues-and-patterns',
+}
+
+
+def convert_cross_references(content: str, current_file: str, anchor_map: dict) -> str:
     """Convert relative markdown links to internal references."""
 
     # Pattern for markdown links: [text](file.md) or [text](file.md#anchor)
-    link_pattern = re.compile(r'\[([^\]]+)\]\((\d{2}_[a-z_]+\.md)(#[a-z-]+)?\)')
+    # Handles numbered files (00_overview.md), unnumbered files (index.md, concept_index.md),
+    # and optional trailing slash before anchor (06_functions.md/#anchor)
+    link_pattern = re.compile(
+        r'\[([^\]]+)\]\(([a-z0-9_]+\.md)/?(#[a-z0-9_-]+)?\)'
+    )
+
+    # Also fix same-file broken anchors: [text](#broken-anchor)
+    same_file_pattern = re.compile(
+        r'\[([^\]]+)\]\((#[a-z0-9_-]+)\)'
+    )
 
     def replace_link(match):
         text = match.group(1)
         target_file = match.group(2)
         anchor = match.group(3) or ''
 
-        # For print, we'll use the chapter name
-        chapter_name = target_file.replace('.md', '').replace('_', '-')
+        if target_file in anchor_map:
+            chapter_anchor = anchor_map[target_file]
+            if anchor:
+                # Fix known broken section anchors
+                anchor_id = anchor[1:]  # strip '#'
+                if anchor_id in BROKEN_ANCHOR_FIXES:
+                    anchor = '#' + BROKEN_ANCHOR_FIXES[anchor_id]
+                return f'[{text}]({anchor})'
+            else:
+                # Link to the chapter itself
+                return f'[{text}](#{chapter_anchor})'
+        else:
+            # Unknown file — leave the link text but remove broken href
+            return text
 
-        # Return a cross-reference that Pandoc can handle
-        return f'[{text}](#{chapter_name})'
+    def fix_same_file_anchor(match):
+        text = match.group(1)
+        anchor = match.group(2)
+        anchor_id = anchor[1:]  # strip '#'
+        if anchor_id in BROKEN_ANCHOR_FIXES:
+            return f'[{text}](#{BROKEN_ANCHOR_FIXES[anchor_id]})'
+        return match.group(0)
 
-    return link_pattern.sub(replace_link, content)
+    content = link_pattern.sub(replace_link, content)
+    content = same_file_pattern.sub(fix_same_file_anchor, content)
+    return content
 
 
 def clean_versetest_comments(content: str) -> str:
@@ -159,7 +217,8 @@ def add_chapter_header(content: str, chapter_title: str, is_numbered: bool, chap
     return header + content
 
 
-def process_file(filepath: Path, chapter_title: str, is_numbered: bool, chapter_num: int = None) -> str:
+def process_file(filepath: Path, chapter_title: str, is_numbered: bool,
+                  chapter_num: int = None, anchor_map: dict = None) -> str:
     """Process a single markdown file."""
 
     content = filepath.read_text(encoding='utf-8')
@@ -167,7 +226,7 @@ def process_file(filepath: Path, chapter_title: str, is_numbered: bool, chapter_
     # Apply all transformations
     content = clean_versetest_comments(content)
     content = convert_admonitions(content)
-    content = convert_cross_references(content, filepath.name)
+    content = convert_cross_references(content, filepath.name, anchor_map or {})
     content = fix_code_blocks(content)
     content = add_chapter_header(content, chapter_title, is_numbered, chapter_num)
 
@@ -194,6 +253,9 @@ def main():
         print(f"Error: Directory {docs_dir} does not exist")
         sys.exit(1)
 
+    # Build filename→anchor mapping before processing files
+    anchor_map = build_filename_anchor_map()
+
     combined_content = []
     chapter_num = 1
 
@@ -215,7 +277,8 @@ def main():
             filepath,
             title,
             is_numbered,
-            chapter_num if is_numbered else None
+            chapter_num if is_numbered else None,
+            anchor_map
         )
 
         combined_content.append(content)
