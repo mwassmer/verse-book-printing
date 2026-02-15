@@ -10,7 +10,16 @@ BUILD_DIR="$SCRIPT_DIR/build"
 TEMPLATE_DIR="$SCRIPT_DIR/templates"
 OUTPUT_DIR="$SCRIPT_DIR/output"
 SCRIPTS_DIR="$SCRIPT_DIR/scripts"
-OUTPUT_FILE="${1:-output/BookOfVerse.pdf}"
+
+# Parse arguments
+PRINT_READY=false
+OUTPUT_FILE=""
+for arg in "$@"; do
+    case "$arg" in
+        --print-ready) PRINT_READY=true ;;
+        *) OUTPUT_FILE="$arg" ;;
+    esac
+done
 
 # Colors for output
 RED='\033[0;31m'
@@ -67,7 +76,14 @@ echo -e "${GREEN}Preprocessing complete: $COMBINED_MD${NC}"
 # Step 3: Convert to PDF with Pandoc
 echo -e "\n${YELLOW}[3/4] Converting to PDF with Pandoc...${NC}"
 
-TEMPLATE="$TEMPLATE_DIR/pandoc-template.tex"
+if [ "$PRINT_READY" = true ]; then
+    TEMPLATE="$TEMPLATE_DIR/print-ready.tex"
+    OUTPUT_FILE="${OUTPUT_FILE:-output/BookOfVerse-print.pdf}"
+    echo -e "${YELLOW}  Using print-ready template (crop marks, bleed)${NC}"
+else
+    TEMPLATE="$TEMPLATE_DIR/pandoc-template.tex"
+    OUTPUT_FILE="${OUTPUT_FILE:-output/BookOfVerse.pdf}"
+fi
 OUTPUT_PDF="$SCRIPT_DIR/$OUTPUT_FILE"
 
 pandoc "$COMBINED_MD" \

@@ -4,7 +4,8 @@
 param(
     [switch]$Clean,
     [switch]$PreprocessOnly,
-    [string]$Output = "output\BookOfVerse.pdf"
+    [switch]$PrintReady,
+    [string]$Output = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -85,7 +86,14 @@ if ($PreprocessOnly) {
 # Step 3: Convert to LaTeX with Pandoc
 Write-Host "`n[3/4] Converting to PDF with Pandoc..." -ForegroundColor Yellow
 
-$template = Join-Path $TemplateDir "pandoc-template.tex"
+if ($PrintReady) {
+    $template = Join-Path $TemplateDir "print-ready.tex"
+    if (-not $Output) { $Output = "output\BookOfVerse-print.pdf" }
+    Write-Host "  Using print-ready template (crop marks, bleed)" -ForegroundColor Yellow
+} else {
+    $template = Join-Path $TemplateDir "pandoc-template.tex"
+    if (-not $Output) { $Output = "output\BookOfVerse.pdf" }
+}
 $outputPdf = Join-Path $ScriptDir $Output
 
 # Pandoc options for high-quality output

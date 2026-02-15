@@ -5,9 +5,9 @@
 | Specification | Value | Notes |
 |--------------|-------|-------|
 | **Trim Size** | 7" × 10" | Standard technical book format |
-| **Page Count** | ~440 pages | Based on generated PDF |
+| **Page Count** | 469 pages | Based on generated PDF |
 | **Paper Weight** | 60-70 lb text | Natural/cream recommended |
-| **Spine Width** | ~1.1" - 1.3" | Varies by paper + binding |
+| **Spine Width** | 1.33" | 469 pages × 0.0025" + 0.16" boards |
 | **Binding Type** | Case bound (hardcover) | Leather wrapped |
 
 ---
@@ -21,7 +21,7 @@
 │  │                  │         │                  │                  │
 │  │   BACK COVER     │  SPINE  │   FRONT COVER    │                  │
 │  │                  │         │                  │                  │
-│  │    7" × 10"      │ ~1.2"   │    7" × 10"      │                  │
+│  │    7" × 10"      │ 1.33"   │    7" × 10"      │                  │
 │  │                  │  × 10"  │                  │                  │
 │  │                  │         │                  │                  │
 │  └──────────────────┴─────────┴──────────────────┘                  │
@@ -35,9 +35,9 @@
 |---------|-------|--------|
 | **Front Cover** | 7" | 10" |
 | **Back Cover** | 7" | 10" |
-| **Spine** | 1.2" (calculate based on page count) | 10" |
-| **Total Spread** | 15.2" | 10" |
-| **With Bleed** | 15.825" | 10.625" |
+| **Spine** | 1.33" (469 × 0.0025" + 0.16" boards) | 10" |
+| **Total Spread** | 15.33" | 10" |
+| **With Bleed** | 15.955" | 10.625" |
 | **Bleed Amount** | 0.3125" (5/16") all sides | For leather wrap |
 
 ### Spine Width Calculation
@@ -45,10 +45,10 @@
 ```
 Spine Width = (Page Count × Paper Thickness) + (Board Thickness × 2)
 
-For 440 pages on 60 lb paper:
-- Paper: 440 × 0.0025" = 1.1"
+For 469 pages on 60 lb paper:
+- Paper: 469 × 0.0025" = 1.1725"
 - Boards: 2 × 0.08" = 0.16"
-- Total: ~1.26"
+- Total: ~1.33"
 
 Confirm with your binder before finalizing!
 ```

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book of Verse — Cover Mockup Comparison</title>
+  <style>
+    body {
+      background: #1a1a1a; color: #eee;
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 2rem; line-height: 1.5;
+    }
+    h1 { text-align: center; margin-bottom: 0.25rem; }
+    h2 { text-align: center; color: #aaa; margin: 2rem 0 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+    .subtitle { text-align: center; color: #888; margin-bottom: 2rem; }
+    .grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem; max-width: 1400px; margin: 0 auto 3rem;
+    }
+    .card {
+      background: #2a2a2a; border-radius: 8px; padding: 1.25rem;
+      text-align: center; border: 1px solid #333;
+    }
+    .card img {
+      max-width: 100%; height: auto; display: block; margin: 0 auto;
+      border: 1px solid #444;
+    }
+    .card h3 { margin: 0.75rem 0 0.25rem; font-size: 1rem; color: #ccc; }
+    .swatches { font-size: 0.85rem; color: #999; }
+    .swatch {
+      display: inline-block; width: 16px; height: 16px;
+      border-radius: 3px; vertical-align: middle; margin-right: 2px;
+      border: 1px solid #555;
+    }
+    .specs {
+      max-width: 800px; margin: 2rem auto; padding: 1.5rem;
+      background: #2a2a2a; border-radius: 8px; border: 1px solid #333;
+      font-size: 0.9rem;
+    }
+    .specs table { width: 100%; border-collapse: collapse; }
+    .specs td, .specs th { padding: 0.5rem; text-align: left; border-bottom: 1px solid #333; }
+    .specs th { color: #aaa; }
+  </style>
+</head>
+<body>
+
+<h1>Book of Verse — Cover Mockup Comparison</h1>
+<p class="subtitle">4 color schemes for side-by-side review</p>
+
+<h2>Full Cover Spreads</h2>
+<div class="grid">
+    <div class="card">
+      <img src="mockup-navy-gold.svg" alt="Mockup A">
+      <h3>Mockup A: Navy + Gold</h3>
+      <div class="swatches">
+        <span class="swatch" style="background:#1a2744"></span> Cover
+        <span class="swatch" style="background:#d4af37"></span> Foil
+      </div>
+    </div>
+    <div class="card">
+      <img src="mockup-black-gold.svg" alt="Mockup B">
+      <h3>Mockup B: Black + Gold</h3>
+      <div class="swatches">
+        <span class="swatch" style="background:#111111"></span> Cover
+        <span class="swatch" style="background:#d4af37"></span> Foil
+      </div>
+    </div>
+    <div class="card">
+      <img src="mockup-black-silver.svg" alt="Mockup C">
+      <h3>Mockup C: Black + Silver</h3>
+      <div class="swatches">
+        <span class="swatch" style="background:#111111"></span> Cover
+        <span class="swatch" style="background:#c0c0c0"></span> Foil
+      </div>
+    </div>
+    <div class="card">
+      <img src="mockup-brown-gold.svg" alt="Mockup D">
+      <h3>Mockup D: Dark Brown + Gold</h3>
+      <div class="swatches">
+        <span class="swatch" style="background:#3d2b1f"></span> Cover
+        <span class="swatch" style="background:#d4af37"></span> Foil
+      </div>
+    </div>
+</div>
+
+<h2>Slipcase Mockups (Ultra-Premium Edition)</h2>
+<div class="grid">
+    <div class="card">
+      <img src="mockup-navy-gold-slipcase.svg" alt="Slipcase A">
+      <h3>Slipcase A: Navy + Gold</h3>
+    </div>
+    <div class="card">
+      <img src="mockup-black-gold-slipcase.svg" alt="Slipcase B">
+      <h3>Slipcase B: Black + Gold</h3>
+    </div>
+    <div class="card">
+      <img src="mockup-black-silver-slipcase.svg" alt="Slipcase C">
+      <h3>Slipcase C: Black + Silver</h3>
+    </div>
+    <div class="card">
+      <img src="mockup-brown-gold-slipcase.svg" alt="Slipcase D">
+      <h3>Slipcase D: Dark Brown + Gold</h3>
+    </div>
+</div>
+
+<div class="specs">
+  <h3>Cover Specifications</h3>
+  <table>
+    <tr><th>Trim Size</th><td>7" &times; 10"</td></tr>
+    <tr><th>Page Count</th><td>469 pages</td></tr>
+    <tr><th>Spine Width</th><td>1.33" (469 &times; 0.0025" + 0.16" boards)</td></tr>
+    <tr><th>Full Spread</th><td>15.33" &times; 10"</td></tr>
+    <tr><th>Bleed</th><td>0.3125" all sides</td></tr>
+    <tr><th>Front Emblem</th><td>2.5" wide V logo</td></tr>
+    <tr><th>Spine Emblem</th><td>0.7" wide V logo</td></tr>
+  </table>
+</div>
+
+</body>
+</html>

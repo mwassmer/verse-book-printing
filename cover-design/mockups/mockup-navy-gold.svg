@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1148 764"
+     width="1148" height="764">
+  <!--
+    Book of Verse — Cover Mockup A: Navy + Gold
+    Full spread: Back Cover + Spine + Front Cover
+    Trim: 7" + 1.33" + 7" = 15.33" × 10"
+    With bleed: 1148px × 764px at 72 DPI
+  -->
+
+  <!-- Bleed area background -->
+  <rect x="0" y="0" width="1148" height="764" fill="#e0e0e0"/>
+
+  <!-- Full trim area -->
+  <rect x="22" y="22" width="1104" height="720" fill="#1a2744"/>
+
+  <!-- Back Cover panel -->
+  <rect x="22" y="22" width="504" height="720" fill="#1a2744"/>
+
+  <!-- Spine panel (slightly darker) -->
+  <rect x="526" y="22" width="96" height="720" fill="#121c33"/>
+
+  <!-- Front Cover panel -->
+  <rect x="622" y="22" width="504" height="720" fill="#1a2744"/>
+
+  <!-- ====== FRONT COVER ELEMENTS ====== -->
+
+  <!-- V emblem on front cover (foil color) -->
+  <path d="M 784.0,162.0 L 823.6,162.0 L 879.4,273.6 L 924.4,187.2 L 892.0,162.0 L 964.0,162.0 L 874.0,342.0 Z" fill="#d4af37"/>
+
+  <!-- Title: BOOK OF VERSE -->
+  <text x="874" y="402"
+        text-anchor="middle" fill="#d4af37"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="36" font-weight="bold" letter-spacing="3">BOOK OF VERSE</text>
+
+  <!-- Subtitle -->
+  <text x="874" y="442"
+        text-anchor="middle" fill="#d4af37" opacity="0.8"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16" font-style="italic">The Verse Programming Language</text>
+
+  <!-- ====== SPINE ELEMENTS ====== -->
+
+  <!-- Raised bands on spine (5 bands) -->
+  <rect x="526" y="139" width="96" height="6" fill="#0f1825" opacity="0.6"/>
+  <rect x="526" y="259" width="96" height="6" fill="#0f1825" opacity="0.6"/>
+  <rect x="526" y="379" width="96" height="6" fill="#0f1825" opacity="0.6"/>
+  <rect x="526" y="499" width="96" height="6" fill="#0f1825" opacity="0.6"/>
+  <rect x="526" y="619" width="96" height="6" fill="#0f1825" opacity="0.6"/>
+
+  <!-- Spine title (rotated, reading top-to-bottom) -->
+  <g transform="translate(574, 102)">
+    <text transform="rotate(90)" x="0" y="0"
+          text-anchor="start" fill="#d4af37"
+          font-family="Georgia, 'Times New Roman', serif"
+          font-size="16" font-weight="bold" letter-spacing="2">BOOK OF VERSE</text>
+  </g>
+
+  <!-- V emblem on spine -->
+  <path d="M 549.0,652.0 L 560.0,652.0 L 575.5,683.0 L 588.0,659.0 L 579.0,652.0 L 599.0,652.0 L 574.0,702.0 Z" fill="#d4af37"/>
+
+  <!-- ====== BACK COVER ====== -->
+
+  <!-- Back cover placeholder text -->
+  <text x="274" y="362"
+        text-anchor="middle" fill="#d4af37" opacity="0.3"
+        font-family="Arial, Helvetica, sans-serif" font-size="14">BACK COVER</text>
+  <text x="274" y="387"
+        text-anchor="middle" fill="#d4af37" opacity="0.2"
+        font-family="Arial, Helvetica, sans-serif" font-size="11">(description or blind deboss pattern)</text>
+
+  <!-- ====== DIMENSION LABELS ====== -->
+
+  <!-- Top dimension lines -->
+  <line x1="22" y1="10" x2="526" y2="10" stroke="#888" stroke-width="0.5"/>
+  <text x="274" y="8" text-anchor="middle"
+        fill="#888" font-family="Arial, sans-serif" font-size="9">7" (Back)</text>
+
+  <line x1="526" y1="10" x2="622" y2="10" stroke="#888" stroke-width="0.5"/>
+  <text x="574" y="8" text-anchor="middle"
+        fill="#888" font-family="Arial, sans-serif" font-size="9">1.33"</text>
+
+  <line x1="622" y1="10" x2="1126" y2="10" stroke="#888" stroke-width="0.5"/>
+  <text x="874" y="8" text-anchor="middle"
+        fill="#888" font-family="Arial, sans-serif" font-size="9">7" (Front)</text>
+
+  <!-- Label -->
+  <text x="574" y="759" text-anchor="middle"
+        fill="#888" font-family="Arial, sans-serif" font-size="10">
+    Mockup A: Navy + Gold — Book of Verse Cover Spread</text>
+
+</svg>
