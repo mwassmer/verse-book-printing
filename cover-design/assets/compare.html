@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Verse V Logo — Visual Comparison</title>
+  <style>
+    body {
+      background: #1a1a1a; color: #eee;
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 2rem; line-height: 1.5;
+    }
+    h1 { text-align: center; margin-bottom: 0.25rem; }
+    .subtitle { text-align: center; color: #888; margin-bottom: 2rem; }
+    .grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; max-width: 1200px; margin: 0 auto 3rem;
+    }
+    .card {
+      background: #2a2a2a; border-radius: 8px; padding: 1.25rem;
+      text-align: center; border: 1px solid #333;
+    }
+    .card img, .card object {
+      max-width: 100%; height: 280px; object-fit: contain; display: block; margin: 0 auto;
+    }
+    .card h2 { margin: 0.75rem 0 0; font-size: 0.95rem; color: #ccc; }
+    .overlay {
+      max-width: 500px; margin: 0 auto; text-align: center;
+      background: #2a2a2a; border-radius: 8px; padding: 1.5rem; border: 1px solid #333;
+    }
+    .stack {
+      position: relative; width: 400px; height: 400px; margin: 1rem auto;
+      background: #111;
+    }
+    .stack img {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;
+    }
+    .stack img.svg-overlay { mix-blend-mode: difference; }
+    input[type=range] { width: 280px; vertical-align: middle; }
+    label { color: #aaa; }
+    .notes {
+      max-width: 700px; margin: 2rem auto; padding: 1rem;
+      background: #2a2a2a; border-radius: 8px; border: 1px solid #333;
+      font-size: 0.85rem; color: #999;
+    }
+    .notes code { background: #333; padding: 0.15em 0.4em; border-radius: 3px; color: #ddd; }
+  </style>
+</head>
+<body>
+
+<h1>Verse "V" Logo — Comparison</h1>
+<p class="subtitle">Compare the vectorized SVG against the source JPEG</p>
+
+<div class="grid">
+  <div class="card">
+    <img src="../../verselanguageimage.jpeg" alt="Source JPEG">
+    <h2>Source JPEG</h2>
+  </div>
+  <div class="card">
+    <img src="verse-v-logo.svg" alt="Detailed SVG">
+    <h2>Detailed SVG (metallic)</h2>
+  </div>
+  <div class="card">
+    <img src="verse-v-logo-foil.svg" alt="Foil SVG">
+    <h2>Foil-Ready SVG</h2>
+  </div>
+</div>
+
+<div class="overlay">
+  <h2 style="margin-top:0">Overlay Comparison</h2>
+  <div class="stack">
+    <img src="../../verselanguageimage.jpeg" alt="Source">
+    <img class="svg-overlay" id="overlayImg" src="verse-v-logo.svg" alt="SVG Overlay">
+  </div>
+  <label>Overlay opacity:
+    <input type="range" min="0" max="100" value="50"
+           oninput="document.getElementById('overlayImg').style.opacity = this.value/100">
+  </label>
+</div>
+
+<div class="notes">
+  <strong>Refinement:</strong> Edit the <code>V_OUTLINE</code> coordinate array
+  in <code>scripts/generate-verse-logo.py</code>,
+  then re-run the script to regenerate. Use the overlay slider above to compare alignment.
+</div>
+
+</body>
+</html>

@@ -31,10 +31,11 @@
 
   <!-- FRONT COVER ELEMENTS -->
 
-  <!-- Emblem placeholder -->
-  <circle cx="864" cy="280" r="90" fill="none" stroke="#d4af37" stroke-width="2"/>
-  <text x="864" y="285" text-anchor="middle" fill="#d4af37" font-family="Arial, sans-serif" font-size="12">EMBLEM</text>
-  <text x="864" y="300" text-anchor="middle" fill="#d4af37" font-family="Arial, sans-serif" font-size="10">max 3" × 3"</text>
+  <!-- Verse V emblem (gold foil, ~180px = 2.5" at 72dpi) -->
+  <g transform="translate(774, 190) scale(1.8)">
+    <path d="M 0,0 L 22,0 L 53,62 L 78,14 L 60,0 L 100,0 L 50,100 Z"
+          fill="#d4af37"/>
+  </g>
 
   <!-- Title -->
   <text x="864" y="450" text-anchor="middle" fill="#d4af37" font-family="Georgia, serif" font-size="36" font-weight="bold">BOOK OF VERSE</text>
@@ -55,8 +56,11 @@
     <text transform="rotate(90)" x="0" y="0" fill="#d4af37" font-family="Arial, sans-serif" font-size="12">JAN VITEK</text>
   </g>
 
-  <!-- Spine emblem placeholder -->
-  <circle cx="569" cy="680" r="25" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+  <!-- Spine V emblem (gold foil, ~50px = 0.7" at 72dpi) -->
+  <g transform="translate(544, 655) scale(0.5)">
+    <path d="M 0,0 L 22,0 L 53,62 L 78,14 L 60,0 L 100,0 L 50,100 Z"
+          fill="#d4af37"/>
+  </g>
 
   <!-- Raised bands (decorative) -->
   <rect x="526" y="100" width="86" height="6" fill="#0f1825" opacity="0.5"/>

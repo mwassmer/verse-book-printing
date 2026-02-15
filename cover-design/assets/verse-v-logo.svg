@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="400" height="400">
+  <defs>
+    <!-- Metallic gradient -->
+    <linearGradient id="metallic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0e0e0"/>
+      <stop offset="20%" stop-color="#a8a8a8"/>
+      <stop offset="45%" stop-color="#d0d0d0"/>
+      <stop offset="70%" stop-color="#888888"/>
+      <stop offset="100%" stop-color="#b8b8b8"/>
+    </linearGradient>
+
+    <!-- Drop shadow -->
+    <filter id="shadow" x="-15%" y="-10%" width="140%" height="140%">
+      <feDropShadow dx="1.5" dy="2.5" stdDeviation="3" flood-color="#000" flood-opacity="0.55"/>
+    </filter>
+
+    <!-- Crosshatch texture pattern -->
+    <pattern id="crosshatch" width="3" height="3" patternUnits="userSpaceOnUse"
+             patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="3" stroke="#888" stroke-width="0.25" opacity="0.12"/>
+    </pattern>
+
+    <!-- Edge highlight gradient (top-lit) -->
+    <linearGradient id="edgeHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- V shape: metallic fill + shadow -->
+  <path d="M 0,0 L 22,0 L 53,62 L 78,14 L 60,0 L 100,0 L 50,100 Z" fill="url(#metallic)" filter="url(#shadow)"/>
+
+  <!-- Crosshatch texture overlay -->
+  <path d="M 0,0 L 22,0 L 53,62 L 78,14 L 60,0 L 100,0 L 50,100 Z" fill="url(#crosshatch)"/>
+
+  <!-- Edge highlight stroke -->
+  <path d="M 0,0 L 22,0 L 53,62 L 78,14 L 60,0 L 100,0 L 50,100 Z" fill="none" stroke="url(#edgeHighlight)" stroke-width="0.7"/>
+</svg>
