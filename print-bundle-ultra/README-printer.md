@@ -27,7 +27,7 @@
 ### Binding
 
 - **Type:** Smyth-sewn signatures
-- **Cover Material:** Full-grain leather, [COLOR TBD — see mockups in cover-design/mockups/]
+- **Cover Material:** Full-grain leather, Black (#111111)
 - **Boards:** Heavy binder's board (0.08" / 2mm)
 - **Endpapers:** Marbled or complementary solid color, 80-100 lb text weight
 - **Head/Tail Bands:** Yes, color to complement leather
@@ -38,7 +38,7 @@
 
 ### Foil Stamping
 
-- **Foil Color:** [GOLD or SILVER TBD — see mockups]
+- **Foil Color:** Silver (gloss)
 - **Locations:** Front cover + spine
 - **Die Artwork:** See `cover-artwork/` directory — all files are solid black on white, text outlined
 

@@ -27,7 +27,7 @@ All interior files and foil die artwork are prepared and available for review.
 |--------------|-------|
 | Binding | Smyth-sewn signatures |
 | Cover Material | Full-grain leather |
-| Cover Color | [TBD — Navy, Black, or Dark Brown] |
+| Cover Color | Black (#111111) |
 | Board Thickness | 0.08" (2mm) |
 | Spine Width | 1.33" (to be confirmed with text block) |
 | Spine Style | Rounded and backed with 5 raised bands |
@@ -35,7 +35,7 @@ All interior files and foil die artwork are prepared and available for review.
 ### Foil Stamping
 | Specification | Value |
 |--------------|-------|
-| Foil Color | [TBD — Gold or Silver] |
+| Foil Color | Gloss Silver |
 | Front Cover | 3 dies: V emblem (2.5"), title, subtitle+author |
 | Spine | 3 dies: title, author, V emblem (0.7") |
 | Artwork | Vector SVG/PDF, solid black on white, text outlined |
@@ -74,14 +74,14 @@ All interior files and foil die artwork are prepared and available for review.
 |--------------|-------|
 | Binding | Smyth-sewn |
 | Cover Material | Cloth-over-board (buckram) |
-| Cover Color | [TBD — matching ultra-premium color scheme] |
+| Cover Color | Black (#111111) |
 | Board Thickness | 0.08" (2mm) |
 | Spine Width | 1.33" |
 
 ### Foil Stamping
 | Specification | Value |
 |--------------|-------|
-| Foil Color | [TBD — Gold or Silver, same as ultra-premium] |
+| Foil Color | Gloss Silver |
 | Front Cover | Same 3 dies as ultra-premium |
 | Spine | Same 3 dies as ultra-premium |
 | Note | Dies can be shared between editions |
@@ -132,7 +132,7 @@ Please provide quotes for the following:
 ## Files We Will Provide
 
 - Print-ready interior PDF (crop marks, 0.125" bleed)
-- 6 foil die artwork files (vector, black on white, text outlined)
+- 5 foil die artwork files (vector, black on white, text outlined)
 - Full cover spread reference SVG
 - V logo source vector
 
@@ -188,10 +188,10 @@ I am seeking quotes for a premium print edition of "Book of Verse,"
 a 469-page technical reference (7" x 10" trim).
 
 We need two editions:
-  1. Ultra-Premium: 10 copies — full-grain leather, gold foil stamping,
-     gilded edges, slipcase, Smyth-sewn, raised spine bands
-  2. Team Edition: 100 copies — cloth-over-board (buckram), gold foil
-     stamping, Smyth-sewn, ribbon bookmark
+  1. Ultra-Premium: 10 copies — black full-grain leather, silver foil
+     stamping, gilded edges, slipcase, Smyth-sewn, raised spine bands
+  2. Team Edition: 100 copies — black cloth-over-board (buckram), silver
+     foil stamping, Smyth-sewn, ribbon bookmark
 
 All interior files and vector die artwork are print-ready.
 I can send a complete submission package for your review.

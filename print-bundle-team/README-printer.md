@@ -27,7 +27,7 @@
 ### Binding
 
 - **Type:** Smyth-sewn signatures
-- **Cover Material:** Cloth-over-board (buckram), [COLOR TBD — see mockups in cover-design/mockups/]
+- **Cover Material:** Cloth-over-board (buckram), Black (#111111)
 - **Boards:** Standard binder's board (0.08" / 2mm)
 - **Endpapers:** Complementary solid color
 - **Head/Tail Bands:** Yes, standard decorative
@@ -39,7 +39,7 @@
 
 ### Foil Stamping
 
-- **Foil Color:** [GOLD or SILVER TBD — see mockups]
+- **Foil Color:** Silver (gloss)
 - **Locations:** Front cover + spine
 - **Die Artwork:** See `cover-artwork/` directory — all files are solid black on white, text outlined
 

@@ -39,7 +39,7 @@
 | Specification | Value |
 |--------------|-------|
 | Material | Cloth-over-board (buckram) |
-| Color | [TBD — Navy / Black / Brown to match ultra-premium] |
+| Color | Black (#111111) |
 | Quality | Library-grade buckram cloth |
 | Turn-in | Standard bookbinding turn-in |
 
@@ -49,7 +49,7 @@
 
 | Specification | Value |
 |--------------|-------|
-| Foil Type | [TBD — Gloss Gold / Matte Gold / Gloss Silver] |
+| Foil Type | Gloss Silver |
 | Foil Locations | Front cover + spine |
 | Die Material | Per printer recommendation (shared dies with ultra edition) |
 

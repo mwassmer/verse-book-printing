@@ -41,7 +41,7 @@
 | Specification | Value |
 |--------------|-------|
 | Material | Full-grain leather |
-| Color | [TBD — Navy #1a2744 / Black #111111 / Brown #3d2b1f] |
+| Color | Black (#111111) |
 | Thickness | Standard bookbinding weight |
 | Turn-in | 3/4" minimum turn-in on all sides |
 | Treatment | Finished/sealed for durability |
@@ -52,7 +52,7 @@
 
 | Specification | Value |
 |--------------|-------|
-| Foil Type | [TBD — Gloss Gold / Matte Gold / Gloss Silver] |
+| Foil Type | Gloss Silver |
 | Foil Locations | Front cover + spine |
 | Die Material | Magnesium or brass |
 | Temperature | Per foil manufacturer recommendation |
