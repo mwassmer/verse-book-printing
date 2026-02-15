@@ -194,6 +194,11 @@
 \usepackage{array}
 \usepackage{multirow}
 
+% Pandoc 3.x longtable compatibility: define missing 'none' counter
+\makeatletter
+\@ifundefined{c@none}{\newcounter{none}}{}
+\makeatother
+
 %% ============================================================
 %% HYPERLINKS (for PDF navigation)
 %% ============================================================
@@ -212,8 +217,10 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{enumitem}
+\usepackage{calc}
 \usepackage{microtype}
 \usepackage{parskip}
+\usepackage{soul}
 
 \widowpenalty=10000
 \clubpenalty=10000
@@ -227,7 +234,11 @@ $endif$
 
 \usepackage{framed}
 \definecolor{shadecolor}{RGB}{240,240,240}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\makeatletter
+\@ifundefined{Shaded}{%
+  \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}%
+}{}
+\makeatother
 
 %% ============================================================
 %% DOCUMENT
@@ -289,7 +300,7 @@ $body$
 \begin{center}
 \textsc{Colophon}\\[2em]
 This book was typeset using \LaTeX{} with XeLaTeX.\\[1em]
-Page size: 7\textquotedbl\ $\times$ 10\textquotedbl\\
+Page size: 7\textquotedbl\ \texttimes{} 10\textquotedbl\\
 Includes 0.125\textquotedbl\ bleed on all sides.
 \end{center}
 \vfill
