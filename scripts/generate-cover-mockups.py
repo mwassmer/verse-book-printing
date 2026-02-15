@@ -140,9 +140,10 @@ def generate_cover_mockup(scheme):
     fe_x = FRONT_CX - front_emblem_size // 2
     fe_y = TRIM_TOP + 140
 
-    # Spine emblem position (centered, near bottom)
+    # Spine emblem positions (top and bottom, mirrored)
     se_x = SPINE_CX - spine_emblem_size // 2
-    se_y = TRIM_BOTTOM - 90
+    se_top_y = TRIM_TOP + 38
+    se_bot_y = TRIM_BOTTOM - 38 - spine_emblem_size
 
     # Raised band positions (5 evenly spaced)
     band_spacing = HEIGHT_PX // 6
@@ -199,16 +200,19 @@ def generate_cover_mockup(scheme):
   <rect x="{SPINE_LEFT}" y="{bands[3]}" width="{SPINE_W_PX}" height="6" fill="{bc}" opacity="0.6"/>
   <rect x="{SPINE_LEFT}" y="{bands[4]}" width="{SPINE_W_PX}" height="6" fill="{bc}" opacity="0.6"/>
 
-  <!-- Spine title (rotated, reading top-to-bottom) -->
-  <g transform="translate({SPINE_CX}, {TRIM_TOP + 80})">
+  <!-- V emblem on spine (top) -->
+  <path d="{v_path_d(se_x, se_top_y, spine_emblem_size / 100)}" fill="{fc}"/>
+
+  <!-- Spine title (rotated, centered on spine) -->
+  <g transform="translate({SPINE_CX}, {TRIM_TOP + HEIGHT_PX // 2})">
     <text transform="rotate(90)" x="0" y="0"
-          text-anchor="start" fill="{fc}"
+          text-anchor="middle" fill="{fc}"
           font-family="Georgia, 'Times New Roman', serif"
           font-size="16" font-weight="bold" letter-spacing="2">BOOK OF VERSE</text>
   </g>
 
-  <!-- V emblem on spine -->
-  <path d="{v_path_d(se_x, se_y, spine_emblem_size / 100)}" fill="{fc}"/>
+  <!-- V emblem on spine (bottom) -->
+  <path d="{v_path_d(se_x, se_bot_y, spine_emblem_size / 100)}" fill="{fc}"/>
 
   <!-- ====== BACK COVER ====== -->
 

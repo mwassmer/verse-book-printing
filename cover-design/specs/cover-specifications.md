@@ -80,10 +80,10 @@ Confirm with your binder before finalizing!
 │  │                                  │  │
 │  │                                  │  │
 │  │        BOOK OF VERSE            │  │
-│  │      (gold foil, centered)       │  │
+│  │     (silver foil, centered)      │  │
 │  │                                  │  │
 │  │  The Verse Programming Language  │  │
-│  │    (smaller, silver/deboss)      │  │
+│  │     (silver foil, smaller)       │  │
 │  │                                  │  │
 │  │                                  │  │
 │  └──────────────────────────────────┘  │
@@ -99,18 +99,16 @@ Confirm with your binder before finalizing!
 ┌─────────┐
 │ 0.125"  │ ← margin
 ├─────────┤
+│ [logo]  │ ← V emblem (top)
+│         │   Max 0.75" wide
+├─────────┤
 │         │
-│  BOOK   │ ← Gold foil
-│   OF    │   All caps
+│  BOOK   │ ← Silver foil
+│   OF    │   All caps, centered
 │  VERSE  │   Read top-to-bottom
 │         │
 ├─────────┤
-│         │
-│  JAN    │ ← Smaller
-│  VITEK  │   Gold or silver
-│         │
-├─────────┤
-│ [logo]  │ ← Small emblem
+│ [logo]  │ ← V emblem (bottom)
 │         │   Max 0.75" wide
 ├─────────┤
 │ 0.125"  │ ← margin

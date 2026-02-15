@@ -11,7 +11,6 @@ Production-ready vector artwork for foil stamping dies.
 | `die-front-subtitle.svg` | Subtitle + author | Outlined text |
 | `die-spine-title.svg` | Spine title (rotated) | Outlined text |
 | `die-spine-emblem.svg` | V logo for spine | 0.7" wide |
-| `die-spine-author.svg` | Author name (rotated) | Outlined text |
 
 ## Specifications
 

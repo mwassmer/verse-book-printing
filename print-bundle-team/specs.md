@@ -59,9 +59,9 @@
 3. Subtitle + author — centered below title
 
 **Spine Elements:**
-1. Title "BOOK OF VERSE" — rotated 90°, upper spine
-2. Author "JAN VITEK" — rotated 90°, mid spine
-3. V emblem — 0.7" wide, lower spine
+1. V emblem — 0.7" wide, top of spine
+2. Title "BOOK OF VERSE" — rotated 90°, centered on spine
+3. V emblem — 0.7" wide, bottom of spine
 
 ---
 

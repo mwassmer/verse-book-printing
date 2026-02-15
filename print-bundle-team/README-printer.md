@@ -6,7 +6,7 @@
 | Specification | Value |
 |--------------|-------|
 | **Title** | Book of Verse |
-| **Author** | Jan Vitek and the Verse Team |
+| **Author** | Tim Sweeney and the Verse Team |
 | **Quantity** | 100 copies |
 | **Trim Size** | 7" x 10" |
 | **Page Count** | 469 pages |
@@ -53,9 +53,8 @@
 **Spine Dies:**
 | Die File | Content | Placement |
 |----------|---------|-----------|
-| `die-spine-title.svg` | "BOOK OF VERSE" (rotated) | Upper spine |
-| `die-spine-author.svg` | "JAN VITEK" (rotated) | Mid spine |
-| `die-spine-emblem.svg` | V logo, 0.7" wide | Lower spine |
+| `die-spine-emblem.svg` | V logo, 0.7" wide | Top and bottom of spine |
+| `die-spine-title.svg` | "BOOK OF VERSE" (rotated) | Centered on spine |
 
 ---
 
@@ -72,7 +71,8 @@ print-bundle-team/
     die-front-subtitle.svg ← Foil die: front subtitle
     die-spine-title.svg    ← Foil die: spine title
     die-spine-emblem.svg   ← Foil die: spine V logo
-    die-spine-author.svg   ← Foil die: spine author
+    verse-v-logo-foil.svg  ← Source vector for reference
+    full-spread.svg        ← Full cover spread layout reference
 ```
 
 ---

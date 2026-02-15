@@ -97,7 +97,7 @@ pandoc "$COMBINED_MD" \
     --highlight-style=tango \
     --variable="date:$(date +'%B %Y')" \
     --metadata=title:"Book of Verse" \
-    --metadata=author:"Jan Vitek and the Verse Team" \
+    --metadata=author:"Tim Sweeney and the Verse Team" \
     -V documentclass=book \
     -V papersize=letter \
     -V fontsize=11pt

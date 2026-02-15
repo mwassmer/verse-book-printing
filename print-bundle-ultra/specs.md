@@ -63,10 +63,9 @@
 2. Title "BOOK OF VERSE" — centered below emblem
 3. Subtitle "The Verse Programming Language" + author — centered below title
 
-**Spine Elements (3 dies):**
-1. Title "BOOK OF VERSE" — rotated 90°, upper spine area
-2. Author "JAN VITEK" — rotated 90°, mid spine
-3. V emblem — 0.7" wide, lower spine
+**Spine Elements (2 dies):**
+1. V emblem — 0.7" wide, top and bottom of spine
+2. Title "BOOK OF VERSE" — rotated 90°, centered on spine
 
 ---
 

@@ -130,9 +130,9 @@ Same as above but replace "navy blue" with "deep forest green" leather
 **DALL-E 3 / ChatGPT:**
 ```
 Design a leather book spine for "BOOK OF VERSE". The spine should be
-approximately 1.5 inches wide, showing: gold foil title "BOOK OF VERSE"
-running vertically (top to bottom), author name "JAN VITEK" smaller below,
-small geometric emblem at bottom, 4-5 raised horizontal bands creating
+approximately 1.5 inches wide, showing: small geometric V emblem at top,
+gold foil title "BOOK OF VERSE" running vertically centered,
+small geometric V emblem at bottom, 4-5 raised horizontal bands creating
 classic leather binding appearance. Navy blue leather background,
 gold foil text. Photorealistic render, front view of spine only.
 ```

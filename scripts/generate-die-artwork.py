@@ -8,10 +8,9 @@ All output is solid black on white, with text converted to outlined paths.
 Produces files in cover-design/production/:
   die-front-emblem.svg   — V logo at 2.5" wide
   die-front-title.svg    — "BOOK OF VERSE" title text, outlined
-  die-front-subtitle.svg — Subtitle + author, outlined
+  die-front-subtitle.svg — Subtitle text, outlined
   die-spine-title.svg    — Spine title (rotated), outlined
   die-spine-emblem.svg   — V logo at 0.7" wide
-  die-spine-author.svg   — Author text, outlined
 
 All text is rendered as SVG path data (no live fonts) for production use.
 For PDF conversion, use Inkscape or Illustrator to export as PDF.
@@ -285,10 +284,9 @@ Production-ready vector artwork for foil stamping dies.
 |------|---------|------|
 | `die-front-emblem.svg` | V logo for front cover | 2.5" wide |
 | `die-front-title.svg` | "BOOK OF VERSE" title | Outlined text |
-| `die-front-subtitle.svg` | Subtitle + author | Outlined text |
+| `die-front-subtitle.svg` | Subtitle text | Outlined text |
 | `die-spine-title.svg` | Spine title (rotated) | Outlined text |
 | `die-spine-emblem.svg` | V logo for spine | 0.7" wide |
-| `die-spine-author.svg` | Author name (rotated) | Outlined text |
 
 ## Specifications
 

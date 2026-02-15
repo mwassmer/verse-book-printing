@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book of Verse — Edition Comparison (Black + Silver)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: #1a1a1a;
+            color: #eee;
+            margin: 0;
+            padding: 40px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #c0c0c0;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+        .edition {
+            margin-bottom: 50px;
+        }
+        .edition h2 {
+            text-align: center;
+            font-size: 20px;
+            color: #c0c0c0;
+            margin-bottom: 5px;
+        }
+        .edition .desc {
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+        .spread-container {
+            text-align: center;
+        }
+        .spread-container img,
+        .spread-container object {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #333;
+            border-radius: 4px;
+        }
+        .specs-table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-size: 13px;
+            max-width: 600px;
+        }
+        .specs-table td {
+            padding: 6px 16px;
+            border-bottom: 1px solid #333;
+        }
+        .specs-table td:first-child {
+            color: #888;
+            text-align: right;
+        }
+        .specs-table td:last-child {
+            color: #ccc;
+        }
+        .color-swatch {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 2px;
+            vertical-align: middle;
+            margin-right: 6px;
+            border: 1px solid #555;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #333;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book of Verse — Final Design</h1>
+    <p class="subtitle">
+        <span class="color-swatch" style="background:#111111"></span> Black Cover
+        <span class="color-swatch" style="background:#c0c0c0; margin-left: 20px;"></span> Silver Foil
+    </p>
+
+    <div class="edition">
+        <h2>Ultra-Premium Edition</h2>
+        <p class="desc">10 copies — Black full-grain leather, silver foil, gilded edges, slipcase</p>
+        <div class="spread-container">
+            <object type="image/svg+xml" data="../print-bundle-ultra/cover-artwork/full-spread.svg" width="100%">
+                <img src="../print-bundle-ultra/cover-artwork/full-spread.svg" alt="Ultra-Premium Full Spread"/>
+            </object>
+        </div>
+        <table class="specs-table">
+            <tr><td>Cover Material</td><td>Full-grain leather, Black (#111111)</td></tr>
+            <tr><td>Foil</td><td>Gloss Silver (#c0c0c0)</td></tr>
+            <tr><td>Spine</td><td>Rounded, 5 raised bands</td></tr>
+            <tr><td>Extras</td><td>Gilded edges, 2 ribbons, slipcase</td></tr>
+            <tr><td>Quantity</td><td>10 copies</td></tr>
+        </table>
+    </div>
+
+    <hr/>
+
+    <div class="edition">
+        <h2>Team Edition</h2>
+        <p class="desc">100 copies — Black cloth-over-board (buckram), silver foil, Smyth-sewn</p>
+        <div class="spread-container">
+            <object type="image/svg+xml" data="../print-bundle-team/cover-artwork/full-spread.svg" width="100%">
+                <img src="../print-bundle-team/cover-artwork/full-spread.svg" alt="Team Edition Full Spread"/>
+            </object>
+        </div>
+        <table class="specs-table">
+            <tr><td>Cover Material</td><td>Cloth-over-board (buckram), Black (#111111)</td></tr>
+            <tr><td>Foil</td><td>Gloss Silver (#c0c0c0)</td></tr>
+            <tr><td>Spine</td><td>Square, no raised bands</td></tr>
+            <tr><td>Extras</td><td>1 ribbon bookmark</td></tr>
+            <tr><td>Quantity</td><td>100 copies</td></tr>
+        </table>
+    </div>
+
+</body>
+</html>

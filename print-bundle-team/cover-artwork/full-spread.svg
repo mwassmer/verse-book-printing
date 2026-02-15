@@ -2,14 +2,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1148 764"
      width="1148" height="764">
   <!--
-    Book of Verse — Ultra-Premium Edition
+    Book of Verse — Team Edition
     Full Cover Spread: Back + Spine + Front
     Trim: 7" + 1.33" + 7" = 15.33" x 10"
     With bleed (0.125" each side): 15.58" x 10.25"
     At 72 DPI: 1148px x 764px
-    Cover: Black (#111111) full-grain leather
+    Cover: Black (#111111) cloth-over-board (buckram)
     Foil: Gloss Silver (#c0c0c0)
-    Spine: Rounded with 5 raised bands
+    Spine: Square, no raised bands
   -->
 
   <!-- Bleed area background -->
@@ -45,16 +45,10 @@
         font-size="16" font-style="italic">The Verse Programming Language</text>
 
   <!-- ====== SPINE ELEMENTS (Silver Foil) ====== -->
+  <!-- No raised bands — Team Edition has square/flat cloth spine -->
 
   <!-- V emblem on spine (top, 0.7" wide = 50px) -->
   <path d="M 549.0,60.0 L 560.0,60.0 L 575.5,91.0 L 588.0,67.0 L 579.0,60.0 L 599.0,60.0 L 574.0,110.0 Z" fill="#c0c0c0"/>
-
-  <!-- 5 raised bands (leather spine, ultra-premium) -->
-  <rect x="526" y="139" width="96" height="6" fill="#000000" opacity="0.6"/>
-  <rect x="526" y="259" width="96" height="6" fill="#000000" opacity="0.6"/>
-  <rect x="526" y="379" width="96" height="6" fill="#000000" opacity="0.6"/>
-  <rect x="526" y="499" width="96" height="6" fill="#000000" opacity="0.6"/>
-  <rect x="526" y="619" width="96" height="6" fill="#000000" opacity="0.6"/>
 
   <!-- Spine title (rotated, centered on spine) -->
   <g transform="translate(574, 382)">
@@ -93,6 +87,6 @@
   <!-- Edition label -->
   <text x="574" y="759" text-anchor="middle"
         fill="#888" font-family="Arial, sans-serif" font-size="10">
-    Ultra-Premium Edition — Black Leather + Silver Foil — Full Cover Spread</text>
+    Team Edition — Black Cloth (Buckram) + Silver Foil — Full Cover Spread</text>
 
 </svg>

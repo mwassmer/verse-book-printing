@@ -325,6 +325,6 @@ This conversion toolkit is provided as-is for creating team morale items.
 
 ## Credits
 
-- **Verse Language Documentation**: Jan Vitek and the Verse Team at Epic Games
+- **Verse Language Documentation**: Tim Sweeney and the Verse Team at Epic Games
 - **Source**: https://github.com/verselang/book
 - **Conversion Toolkit**: Custom build pipeline for premium printing
