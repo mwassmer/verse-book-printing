@@ -45,6 +45,44 @@
     \setmonofont{Latin Modern Mono}[Scale=0.85]
 }
 
+%% Fallback fonts for emoji, symbols, and CJK characters
+\usepackage{newunicodechar}
+
+\IfFontExistsTF{Segoe UI Emoji}{
+    \newfontfamily\emojifont{Segoe UI Emoji}
+}{
+    \newfontfamily\emojifont{Latin Modern Roman}
+}
+
+\IfFontExistsTF{Segoe UI Symbol}{
+    \newfontfamily\symbolfont{Segoe UI Symbol}
+}{
+    \newfontfamily\symbolfont{Latin Modern Roman}
+}
+
+\IfFontExistsTF{Microsoft YaHei}{
+    \newfontfamily\cjkfont{Microsoft YaHei}
+}{
+    \newfontfamily\cjkfont{Latin Modern Roman}
+}
+
+% Emoji characters
+\newunicodechar{😀}{{\emojifont 😀}}
+\newunicodechar{🐈}{{\emojifont 🐈}}
+\newunicodechar{❌}{{\emojifont ❌}}
+
+% Symbol characters
+\newunicodechar{✔}{{\symbolfont ✔}}
+\newunicodechar{✗}{{\symbolfont ✗}}
+\newunicodechar{⚠}{{\symbolfont ⚠}}
+\newunicodechar{ₙ}{{\symbolfont ₙ}}
+
+% Variation selector (invisible, used after emoji)
+\newunicodechar{️}{}
+
+% CJK characters
+\newunicodechar{好}{{\cjkfont 好}}
+
 %% ============================================================
 %% COLORS (print-safe)
 %% ============================================================

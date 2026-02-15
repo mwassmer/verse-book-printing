@@ -143,9 +143,9 @@ All files are prepared and ready for review. We can send a complete submission p
 ## Contact
 
 **Project:** Book of Verse — Premium Print Edition
-**Contact:** [YOUR NAME]
-**Email:** [YOUR EMAIL]
-**Phone:** [YOUR PHONE]
+**Contact:** Marcus Wassmer
+**Email:** marcus.wassmer@gmail.com
+**Phone:** 1-805-813-9688
 **Preferred Response:** Email with itemized quote
 
 ---
@@ -205,7 +205,7 @@ Could you please provide:
 Thank you for your time. I look forward to hearing from you.
 
 Best regards,
-[Your Name]
-[Your Email]
-[Your Phone]
+Marcus Wassmer
+marcus.wassmer@gmail.com
+1-805-813-9688
 ```
