@@ -194,11 +194,57 @@ def clean_versetest_comments(content: str) -> str:
     return content
 
 
+MAX_CODE_LINE_LENGTH = 72
+
+
+def shorten_code_line(line: str) -> str:
+    """Shorten a single code line that exceeds MAX_CODE_LINE_LENGTH.
+
+    Strategy: compress excessive whitespace before inline # comments.
+    """
+    # Match code followed by multiple spaces then a # comment
+    m = re.match(r'^(.*\S)([ \t]{3,})(#\s.*)$', line)
+    if m:
+        code_part = m.group(1)
+        comment_part = m.group(3)
+        shortened = code_part + '  ' + comment_part
+        if len(shortened) <= MAX_CODE_LINE_LENGTH:
+            return shortened
+        # Still too long — try just 1 space
+        shortened = code_part + ' ' + comment_part
+        if len(shortened) <= MAX_CODE_LINE_LENGTH:
+            return shortened
+    return line
+
+
+def compress_long_code_lines(content: str) -> str:
+    """Compress long lines in code blocks to fit within page width."""
+    lines = content.split('\n')
+    result = []
+    in_code = False
+
+    for line in lines:
+        if line.startswith('```'):
+            in_code = not in_code
+            result.append(line)
+            continue
+
+        if in_code and len(line) > MAX_CODE_LINE_LENGTH:
+            line = shorten_code_line(line)
+
+        result.append(line)
+
+    return '\n'.join(result)
+
+
 def fix_code_blocks(content: str) -> str:
     """Ensure code blocks are properly formatted for Pandoc."""
 
     # Make sure verse code blocks have proper syntax marker
     content = re.sub(r'```verse\n', '```{.verse .numberLines}\n', content)
+
+    # Compress long lines in code blocks
+    content = compress_long_code_lines(content)
 
     return content
 
@@ -212,7 +258,7 @@ def add_chapter_header(content: str, chapter_title: str, is_numbered: bool, chap
     if is_numbered and chapter_num is not None:
         header = f'# Chapter {chapter_num}: {chapter_title} {{#chapter-{chapter_num:02d}}}\n\n'
     else:
-        header = f'# {chapter_title}\n\n'
+        header = f'# {chapter_title} {{.unnumbered}}\n\n'
 
     return header + content
 

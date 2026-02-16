@@ -239,6 +239,10 @@ $if(highlighting-macros)$
 $highlighting-macros$
 $endif$
 
+% Enable line breaking for long code lines that exceed the text width
+\usepackage{fvextra}
+\fvset{breaklines=true, breakanywhere=true, breaksymbolright=\small\ensuremath{\hookrightarrow}}
+
 % Only define Shaded if not already defined by highlighting-macros
 \makeatletter
 \@ifundefined{Shaded}{
