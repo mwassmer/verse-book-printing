@@ -270,6 +270,10 @@ $if(highlighting-macros)$
 $highlighting-macros$
 $endif$
 
+% Enable line breaking for long code lines that exceed the text width
+\usepackage{fvextra}
+\fvset{breaklines=true, breakanywhere=true, breaksymbolright=\small\ensuremath{\hookrightarrow}}
+
 \usepackage{framed}
 \definecolor{shadecolor}{RGB}{240,240,240}
 \makeatletter
