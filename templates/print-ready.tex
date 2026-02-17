@@ -27,22 +27,41 @@
 %% ============================================================
 \usepackage{fontspec}
 
+% Font directory for locally installed fonts
+\newcommand{\userfontpath}{C:/Users/marcu/AppData/Local/Microsoft/Windows/Fonts/}
+
 \IfFontExistsTF{Source Serif 4}{
     \setmainfont{Source Serif 4}
 }{
-    \setmainfont{Latin Modern Roman}
+    \setmainfont{SourceSerif4-Regular.otf}[
+        Path=\userfontpath,
+        BoldFont=SourceSerif4-Bold.otf,
+        ItalicFont=SourceSerif4-It.otf,
+        BoldItalicFont=SourceSerif4-BoldIt.otf
+    ]
 }
 
 \IfFontExistsTF{Source Sans 3}{
     \setsansfont{Source Sans 3}
 }{
-    \setsansfont{Latin Modern Sans}
+    \setsansfont{SourceSans3-Regular.otf}[
+        Path=\userfontpath,
+        BoldFont=SourceSans3-Bold.otf,
+        ItalicFont=SourceSans3-It.otf,
+        BoldItalicFont=SourceSans3-BoldIt.otf
+    ]
 }
 
 \IfFontExistsTF{JetBrains Mono}{
     \setmonofont{JetBrains Mono}[Scale=0.85]
 }{
-    \setmonofont{Latin Modern Mono}[Scale=0.85]
+    \setmonofont{JetBrainsMono-Regular.ttf}[
+        Path=\userfontpath,
+        Scale=0.85,
+        BoldFont=JetBrainsMono-Bold.ttf,
+        ItalicFont=JetBrainsMono-Italic.ttf,
+        BoldItalicFont=JetBrainsMono-BoldItalic.ttf
+    ]
 }
 
 %% Fallback fonts for emoji, symbols, and CJK characters
