@@ -23,31 +23,64 @@
 \usepackage{fontspec}
 \usepackage{unicode-math}
 
+% Font directory for locally installed fonts
+\newcommand{\userfontpath}{C:/Users/marcu/AppData/Local/Microsoft/Windows/Fonts/}
+
 % Main text font - Source Serif for readability
-\setmainfont{Source Serif 4}[
-    UprightFont = *-Regular,
-    BoldFont = *-Bold,
-    ItalicFont = *-Italic,
-    BoldItalicFont = *-BoldItalic,
-    Scale = 1.0
-]
+\IfFontExistsTF{Source Serif 4}{
+    \setmainfont{Source Serif 4}[
+        UprightFont = *-Regular,
+        BoldFont = *-Bold,
+        ItalicFont = *-Italic,
+        BoldItalicFont = *-BoldItalic,
+        Scale = 1.0
+    ]
+}{
+    \setmainfont{SourceSerif4-Regular.otf}[
+        Path=\userfontpath,
+        BoldFont=SourceSerif4-Bold.otf,
+        ItalicFont=SourceSerif4-It.otf,
+        BoldItalicFont=SourceSerif4-BoldIt.otf,
+        Scale = 1.0
+    ]
+}
 
 % Sans-serif for headings
-\setsansfont{Source Sans 3}[
-    UprightFont = *-Regular,
-    BoldFont = *-Bold,
-    ItalicFont = *-Italic,
-    BoldItalicFont = *-BoldItalic,
-    Scale = 0.95
-]
+\IfFontExistsTF{Source Sans 3}{
+    \setsansfont{Source Sans 3}[
+        UprightFont = *-Regular,
+        BoldFont = *-Bold,
+        ItalicFont = *-Italic,
+        BoldItalicFont = *-BoldItalic,
+        Scale = 0.95
+    ]
+}{
+    \setsansfont{SourceSans3-Regular.otf}[
+        Path=\userfontpath,
+        BoldFont=SourceSans3-Bold.otf,
+        ItalicFont=SourceSans3-It.otf,
+        BoldItalicFont=SourceSans3-BoldIt.otf,
+        Scale = 0.95
+    ]
+}
 
 % Monospace for code - JetBrains Mono with ligatures
-\setmonofont{JetBrains Mono}[
-    UprightFont = *-Regular,
-    BoldFont = *-Bold,
-    ItalicFont = *-Italic,
-    Scale = 0.85
-]
+\IfFontExistsTF{JetBrains Mono}{
+    \setmonofont{JetBrains Mono}[
+        UprightFont = *-Regular,
+        BoldFont = *-Bold,
+        ItalicFont = *-Italic,
+        Scale = 0.85
+    ]
+}{
+    \setmonofont{JetBrainsMono-Regular.ttf}[
+        Path=\userfontpath,
+        BoldFont=JetBrainsMono-Bold.ttf,
+        ItalicFont=JetBrainsMono-Italic.ttf,
+        BoldItalicFont=JetBrainsMono-BoldItalic.ttf,
+        Scale = 0.85
+    ]
+}
 
 %% ============================================================
 %% COLORS
