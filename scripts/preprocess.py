@@ -256,7 +256,7 @@ def add_chapter_header(content: str, chapter_title: str, is_numbered: bool, chap
     content = re.sub(r'^#\s+[^\n]+\n+', '', content, count=1)
 
     if is_numbered and chapter_num is not None:
-        header = f'# Chapter {chapter_num}: {chapter_title} {{#chapter-{chapter_num:02d}}}\n\n'
+        header = f'# {chapter_title} {{#chapter-{chapter_num:02d}}}\n\n'
     else:
         header = f'# {chapter_title} {{.unnumbered}}\n\n'
 

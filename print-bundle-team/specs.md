@@ -13,7 +13,7 @@
 | Specification | Value |
 |--------------|-------|
 | Trim Size | 7" x 10" |
-| Page Count | 469 pages (text block) |
+| Page Count | 485 pages (text block) |
 | Paper Stock | 70-80 gsm natural/cream |
 | Paper Type | Uncoated book stock |
 | Ink | Black only |

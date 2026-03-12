@@ -28,7 +28,7 @@
 \usepackage{fontspec}
 
 % Font directory for locally installed fonts
-\newcommand{\userfontpath}{C:/Users/marcu/AppData/Local/Microsoft/Windows/Fonts/}
+\newcommand{\userfontpath}{C:/Users/marcus.wassmer/AppData/Local/Microsoft/Windows/Fonts/}
 
 \IfFontExistsTF{Source Serif 4}{
     \setmainfont{Source Serif 4}
@@ -273,6 +273,18 @@
 %% ============================================================
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{atbegshi}
+
+%% ============================================================
+%% PDF BOX METADATA (TrimBox and BleedBox for print imposition)
+%% ============================================================
+% TrimBox: 0.125" (9pt) inset on all sides = 7" x 10" final trim
+% BleedBox: full media = 7.25" x 10.25"
+\newcommand{\setpdfboxes}{%
+  \special{pdf:put @thispage << /TrimBox [9 9 513 729] /BleedBox [0 0 522 738] >>}%
+}
+\AtBeginShipout{\setpdfboxes}
+\AtBeginShipoutFirst{\setpdfboxes}
 \usepackage{enumitem}
 \usepackage{calc}
 \usepackage{microtype}
@@ -341,7 +353,7 @@ Documentation for the Verse Programming Language\\[2em]
 Copyright \textcopyright\ Epic Games, Inc.\\[1em]
 Licensed under CC0-1.0 (Public Domain)\\[2em]
 Source: \url{https://github.com/verselang/book}\\[2em]
-\textit{Print-Ready Edition with Crop Marks}
+\textit{First Edition --- 2026}
 \end{center}
 \vfill
 \cleardoublepage
@@ -361,8 +373,9 @@ $body$
 \begin{center}
 \textsc{Colophon}\\[2em]
 This book was typeset using \LaTeX{} with XeLaTeX.\\[1em]
-Page size: 7\textquotedbl\ \texttimes{} 10\textquotedbl\\
-Includes 0.125\textquotedbl\ bleed on all sides.
+Body text set in Source Serif 4, headings in Source Sans 3,\\
+and code listings in JetBrains Mono.\\[1em]
+First Edition --- 2026
 \end{center}
 \vfill
 
