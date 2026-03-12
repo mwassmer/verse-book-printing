@@ -126,6 +126,10 @@
 %% ============================================================
 \usepackage{fancyhdr}
 \usepackage{titlesec}
+\usepackage{tocloft}
+\setlength{\cftsecnumwidth}{3em}
+\setlength{\cftsubsecnumwidth}{4em}
+\setlength{\cftsubsubsecnumwidth}{5em}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -371,11 +375,7 @@ $body$
 \thispagestyle{empty}
 \vspace*{\fill}
 \begin{center}
-\textsc{Colophon}\\[2em]
-This book was typeset using \LaTeX{} with XeLaTeX.\\[1em]
-Body text set in Source Serif 4, headings in Source Sans 3,\\
-and code listings in JetBrains Mono.\\[1em]
-First Edition --- 2026
+\textit{First Edition --- 2026}
 \end{center}
 \vfill
 

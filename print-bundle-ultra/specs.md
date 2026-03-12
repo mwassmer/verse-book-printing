@@ -13,7 +13,7 @@
 | Specification | Value |
 |--------------|-------|
 | Trim Size | 7" x 10" |
-| Page Count | 485 pages (text block) |
+| Page Count | 483 pages (text block) |
 | Paper Stock | 80-100 gsm acid-free, natural/cream |
 | Paper Type | Uncoated, archival quality |
 | Ink | Black only |

@@ -249,6 +249,23 @@ def fix_code_blocks(content: str) -> str:
     return content
 
 
+def make_subheadings_unnumbered(content: str) -> str:
+    """Make all ## and ### headings unnumbered for appendix/unnumbered chapters.
+
+    This prevents pandoc's --number-sections from continuing the previous
+    chapter's numbering into unnumbered chapters like the Concept Index.
+    """
+    def add_unnumbered(match):
+        hashes = match.group(1)
+        title = match.group(2).rstrip()
+        # Don't double-add if already has attributes
+        if title.endswith('}'):
+            return match.group(0)
+        return f'{hashes} {title} {{.unnumbered}}'
+
+    return re.sub(r'^(#{2,})\s+(.+)$', add_unnumbered, content, flags=re.MULTILINE)
+
+
 def add_chapter_header(content: str, chapter_title: str, is_numbered: bool, chapter_num: int = None) -> str:
     """Add proper chapter header for LaTeX."""
 
@@ -259,6 +276,8 @@ def add_chapter_header(content: str, chapter_title: str, is_numbered: bool, chap
         header = f'# {chapter_title} {{#chapter-{chapter_num:02d}}}\n\n'
     else:
         header = f'# {chapter_title} {{.unnumbered}}\n\n'
+        # Make all sub-headings unnumbered too
+        content = make_subheadings_unnumbered(content)
 
     return header + content
 
