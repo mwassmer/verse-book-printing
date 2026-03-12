@@ -249,6 +249,21 @@ def fix_code_blocks(content: str) -> str:
     return content
 
 
+def convert_links_to_pagerefs(content: str) -> str:
+    """Convert markdown links to page references for print.
+
+    Replaces [Link Text](#anchor) with Link Text (p. \\pageref{anchor})
+    using pandoc's raw LaTeX inline syntax. Used for the Concept Index
+    so printed readers see page numbers instead of clickable hyperlinks.
+    """
+    def replace_with_pageref(match):
+        text = match.group(1)
+        anchor = match.group(2)
+        return f'{text} (p.\\ `\\pageref{{{anchor}}}`{{=latex}})'
+
+    return re.sub(r'\[([^\]]+)\]\(#([a-z0-9_-]+)\)', replace_with_pageref, content)
+
+
 def make_subheadings_unnumbered(content: str) -> str:
     """Make all ## and ### headings unnumbered for appendix/unnumbered chapters.
 
@@ -293,6 +308,9 @@ def process_file(filepath: Path, chapter_title: str, is_numbered: bool,
     content = convert_admonitions(content)
     content = convert_cross_references(content, filepath.name, anchor_map or {})
     content = fix_code_blocks(content)
+    # For the Concept Index, convert hyperlinks to page references for print
+    if filepath.name == 'concept_index.md':
+        content = convert_links_to_pagerefs(content)
     content = add_chapter_header(content, chapter_title, is_numbered, chapter_num)
 
     return content
