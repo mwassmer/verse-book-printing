@@ -255,6 +255,10 @@
 \usepackage{array}
 \usepackage{multirow}
 
+% Use smaller font in tables so wide tables (e.g. precedence table) fit
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\small}
+
 % Pandoc 3.x longtable compatibility: define missing 'none' counter
 \makeatletter
 \@ifundefined{c@none}{\newcounter{none}}{}
