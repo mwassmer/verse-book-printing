@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1100" width="1500" height="1100">
+  <!--
+    BOOK OF VERSE — TEAM EDITION
+    SLIPCASE LAYOUT: Open-spine design
+
+    The slipcase is OPEN on the spine side. When shelved, the book's own spine
+    (with its silver foil) is fully visible. The slipcase wraps around the
+    front, back, top, bottom, and fore-edge of the book.
+
+    Material: Black Brillianta (outside) + Black Prestige (inside)
+    Foil: 1-color (silver) on slipcase "spine" (= fore-edge panel) per quote
+    ALSO: Silver foil V emblem + "BOOK OF VERSE" on front face (to be confirmed)
+
+    Binder: Jay Guitierrez, 602-570-8218
+    Reference: Game of Thrones slipcase (SlipCaseExample.jpg)
+
+    DIMENSIONS (all TBD — sized from mock-up):
+      The slipcase must fit the finished book with clearance.
+      Book (closed, estimated): ~7.25" x 10.25" x ~1.3" deep
+      Slipcase panels will be slightly larger.
+
+    SCALE: 1" = 60px (slightly smaller to fit all views)
+  -->
+
+  <defs>
+    <style>
+      .crop        { stroke: #000; stroke-width: 0.75; }
+      .dim         { stroke: #d04040; stroke-width: 0.5; stroke-dasharray: 4,3; }
+      .dim-text    { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: #d04040; }
+      .heading     { font-family: Georgia, serif; font-size: 22px; fill: #222; font-weight: bold; }
+      .subheading  { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; fill: #555; }
+      .panel-label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; fill: #888; font-weight: bold; letter-spacing: 2px; }
+      .note        { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #999; }
+      .spec        { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #666; }
+      .foil-label  { font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; fill: #d04040; font-weight: bold; }
+      .foil-desc   { font-family: 'Segoe UI', Arial, sans-serif; font-size: 9px; fill: #d04040; }
+      .callout-line { stroke: #d04040; stroke-width: 0.7; }
+      .open-edge   { stroke: #cc6600; stroke-width: 2; stroke-dasharray: 8,4; }
+      .open-label  { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; fill: #cc6600; font-weight: bold; }
+    </style>
+  </defs>
+
+  <rect width="1500" height="1100" fill="#f5f5f2"/>
+
+  <!-- ==================== TITLE BLOCK ==================== -->
+  <text x="750" y="36" text-anchor="middle" class="heading">Book of Verse — Team Edition: Slipcase Layout</text>
+  <text x="750" y="56" text-anchor="middle" class="subheading">
+    Open-spine slipcase · Black Brillianta / Prestige · Silver Gloss Foil · Book spine visible when shelved
+  </text>
+  <text x="750" y="72" text-anchor="middle" class="note">
+    All slipcase dimensions TBD — will be sized from binder's mock-up to fit finished book with clearance
+  </text>
+
+  <!-- ==================== VIEW 1: 3D REFERENCE ==================== -->
+  <!-- Top-left: 3D perspective showing how book sits in slipcase -->
+
+  <text x="220" y="110" text-anchor="middle" class="panel-label">HOW IT WORKS</text>
+
+  <!-- Slipcase shell - 3D box, open on left (spine side) -->
+  <!-- Front face -->
+  <rect x="100" y="140" width="280" height="500" fill="#1a1a1a" stroke="#333" stroke-width="1.5" rx="1"/>
+  <!-- Top face (perspective) -->
+  <path d="M 100,140 L 165,108 L 445,108 L 380,140 Z" fill="#252525" stroke="#333" stroke-width="1"/>
+  <!-- Fore-edge face (right side) -->
+  <path d="M 380,140 L 445,108 L 445,608 L 380,640 Z" fill="#0f0f0f" stroke="#333" stroke-width="1.5"/>
+
+  <!-- Open side on left — the spine opening -->
+  <line x1="100" y1="140" x2="100" y2="640" class="open-edge"/>
+  <text x="82" y="395" text-anchor="middle" class="open-label"
+        transform="rotate(-90, 82, 395)">OPEN — SPINE SIDE</text>
+
+  <!-- Book inside the slipcase, spine visible on left -->
+  <!-- Book spine -->
+  <rect x="95" y="148" width="20" height="484" fill="#1a1a1a" stroke="#444" stroke-width="1" rx="2"/>
+  <!-- Book spine foil (small) -->
+  <path d="M 100,174 L 103,174 L 107,185 L 110,177 L 108,174 L 113,174 L 106,194 Z" fill="#c0c0c0"/>
+  <g transform="translate(106, 395)">
+    <text transform="rotate(-90)" x="0" y="3" text-anchor="middle" fill="#c0c0c0"
+          font-family="Georgia, serif" font-size="6" font-weight="bold" letter-spacing="1">BOOK OF VERSE</text>
+  </g>
+  <path d="M 100,610 L 103,610 L 107,621 L 110,613 L 108,610 L 113,610 L 106,630 Z" fill="#c0c0c0"/>
+  <text x="106" y="650" text-anchor="middle" class="note" font-size="8">Book spine</text>
+  <text x="106" y="660" text-anchor="middle" class="note" font-size="8">(its own foil)</text>
+
+  <!-- Foil on slipcase front face (ghosted to show concept) -->
+  <path d="M 200,235 L 217,235 L 245,305 L 263,258 L 252,235 L 280,235 L 240,340 Z"
+        fill="#c0c0c0" opacity="0.5"/>
+  <text x="240" y="385" text-anchor="middle" fill="#c0c0c0" opacity="0.5"
+        font-family="Georgia, serif" font-size="15" font-weight="bold" letter-spacing="2">BOOK OF VERSE</text>
+
+  <!-- Page edges visible at top -->
+  <rect x="115" y="142" width="260" height="5" fill="#f0e8d8" stroke="#ccc" stroke-width="0.3" rx="1"/>
+
+  <!-- Labels -->
+  <text x="240" y="550" text-anchor="middle" fill="#777" font-family="'Segoe UI', sans-serif" font-size="11">SLIPCASE FRONT FACE</text>
+  <text x="413" y="380" text-anchor="middle" fill="#777" font-family="'Segoe UI', sans-serif" font-size="9"
+        transform="rotate(6, 413, 380)">FORE-EDGE</text>
+
+  <!-- Arrow showing book removal -->
+  <line x1="60" y1="390" x2="30" y2="390" stroke="#cc6600" stroke-width="1.5"/>
+  <path d="M 30,390 L 40,384 L 40,396 Z" fill="#cc6600"/>
+  <text x="45" y="375" class="note" fill="#cc6600">Pull book</text>
+  <text x="45" y="387" class="note" fill="#cc6600">out this side</text>
+
+  <!-- ==================== VIEW 2: SLIPCASE FRONT FACE (flat) ==================== -->
+  <!-- This is the big panel — the star of the show -->
+  <!-- Estimated size: ~7.5" x 10.5" → at 60px/in: 450 x 630 -->
+
+  <text x="790" y="110" text-anchor="middle" class="panel-label">SLIPCASE FRONT FACE</text>
+  <text x="790" y="126" text-anchor="middle" class="note">Main visible panel when book is on shelf — foil art here</text>
+
+  <!-- Panel -->
+  <rect x="565" y="140" width="450" height="630" fill="#1a1a1a" stroke="#000" stroke-width="1"/>
+
+  <!-- Crop marks -->
+  <line x1="565" y1="120" x2="565" y2="135" class="crop"/>
+  <line x1="545" y1="140" x2="560" y2="140" class="crop"/>
+  <line x1="1015" y1="120" x2="1015" y2="135" class="crop"/>
+  <line x1="1020" y1="140" x2="1035" y2="140" class="crop"/>
+  <line x1="565" y1="775" x2="565" y2="790" class="crop"/>
+  <line x1="545" y1="770" x2="560" y2="770" class="crop"/>
+  <line x1="1015" y1="775" x2="1015" y2="790" class="crop"/>
+  <line x1="1020" y1="770" x2="1035" y2="770" class="crop"/>
+
+  <!-- Dimensions -->
+  <line x1="565" y1="800" x2="1015" y2="800" class="dim"/>
+  <text x="790" y="815" text-anchor="middle" class="dim-text">~7.5" (TBD from mock-up)</text>
+  <line x1="1045" y1="140" x2="1045" y2="770" class="dim"/>
+  <text x="1060" y="460" class="dim-text" transform="rotate(90, 1060, 460)">~10.5" (TBD)</text>
+
+  <!-- Edge labels -->
+  <text x="555" y="460" text-anchor="end" class="open-label" font-size="10"
+        transform="rotate(-90, 555, 460)">OPEN SIDE (book spine visible here)</text>
+  <line x1="565" y1="140" x2="565" y2="770" class="open-edge" opacity="0.5"/>
+
+  <text x="1025" y="460" class="note" font-size="9"
+        transform="rotate(90, 1025, 460)">FORE-EDGE (closed side)</text>
+
+  <text x="790" y="155" text-anchor="middle" class="note">TOP</text>
+  <text x="790" y="766" text-anchor="middle" class="note">BOTTOM</text>
+
+  <!-- === FOIL ART ON FRONT FACE === -->
+
+  <!-- V EMBLEM — large, centered, upper portion -->
+  <!-- Emblem: 2.5" wide = 150px at this scale. Center at x=790 -->
+  <g id="slipcase-front-emblem">
+    <path d="M 715,250 L 748.6,250 L 797.4,345 L 835.4,271.2 L 808,250 L 865,250 L 790,400 Z"
+          fill="#c0c0c0" stroke="#a0a0a0" stroke-width="0.5"/>
+  </g>
+  <rect x="715" y="245" width="150" height="160" fill="none" stroke="#d04040" stroke-width="0.6" stroke-dasharray="4,3"/>
+
+  <!-- TITLE below emblem -->
+  <text x="790" y="455" text-anchor="middle" fill="#c0c0c0"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="28" font-weight="bold" letter-spacing="4">BOOK OF VERSE</text>
+  <rect x="630" y="432" width="320" height="35" fill="none" stroke="#d04040" stroke-width="0.6" stroke-dasharray="4,3"/>
+
+  <!-- SUBTITLE -->
+  <text x="790" y="492" text-anchor="middle" fill="#c0c0c0" opacity="0.7"
+        font-family="'Segoe UI', Arial, sans-serif"
+        font-size="12" font-style="italic" letter-spacing="1">The Verse Programming Language</text>
+
+  <!-- Callout labels -->
+  <line x1="865" y1="320" x2="1085" y2="280" class="callout-line"/>
+  <text x="1090" y="276" class="foil-label">V EMBLEM</text>
+  <text x="1090" y="288" class="foil-desc">Silver foil, ~2.5" wide</text>
+  <text x="1090" y="300" class="foil-desc">Centered, upper portion</text>
+  <text x="1090" y="312" class="foil-desc">Same die as book front cover</text>
+
+  <line x1="950" y1="448" x2="1085" y2="420" class="callout-line"/>
+  <text x="1090" y="416" class="foil-label">TITLE</text>
+  <text x="1090" y="428" class="foil-desc">Silver foil, "BOOK OF VERSE"</text>
+
+  <line x1="895" y1="490" x2="1085" y2="500" class="callout-line"/>
+  <text x="1090" y="496" class="foil-label">SUBTITLE</text>
+  <text x="1090" y="508" class="foil-desc">Silver foil, italic</text>
+  <text x="1090" y="520" class="foil-desc">May require additional die</text>
+
+  <!-- ==================== VIEW 3: SLIPCASE FORE-EDGE ("SPINE" PER QUOTE) ==================== -->
+  <!-- Narrow panel, shown horizontally at bottom for readability -->
+  <!-- Estimated: ~1.5" wide x ~10.5" tall → 90 x 630 at this scale -->
+
+  <text x="400" y="850" text-anchor="middle" class="panel-label">SLIPCASE FORE-EDGE PANEL</text>
+  <text x="400" y="866" text-anchor="middle" class="note">
+    The "spine" per BindTech quote — narrow closed side opposite the opening. 1-color foil per quote.
+  </text>
+  <text x="400" y="880" text-anchor="middle" class="note">
+    Shown rotated 90° for readability (actual orientation is vertical like the book spine)
+  </text>
+
+  <!-- Panel shown horizontal: 630px wide x 70px tall -->
+  <rect x="85" y="900" width="630" height="70" fill="#111" stroke="#333" stroke-width="1"/>
+
+  <!-- Foil: V emblem left, title center, V emblem right -->
+  <path d="M 110,916 L 117,916 L 127,938 L 135,921 L 130,916 L 143,916 L 127,950 Z"
+        fill="#c0c0c0" opacity="0.8"/>
+  <g>
+    <text x="400" y="942" text-anchor="middle" fill="#c0c0c0"
+          font-family="Georgia, serif"
+          font-size="16" font-weight="bold" letter-spacing="3">BOOK OF VERSE</text>
+  </g>
+  <path d="M 657,916 L 664,916 L 674,938 L 682,921 L 677,916 L 690,916 L 674,950 Z"
+        fill="#c0c0c0" opacity="0.8"/>
+
+  <!-- Dimensions -->
+  <line x1="85" y1="985" x2="715" y2="985" class="dim"/>
+  <text x="400" y="1000" text-anchor="middle" class="dim-text">~10.5" (shown horizontal)</text>
+  <line x1="725" y1="900" x2="725" y2="970" class="dim"/>
+  <text x="740" y="940" class="dim-text">~1.5"</text>
+
+  <text x="400" y="975" text-anchor="middle" class="foil-desc">Uses same spine dies as book: V emblem + "BOOK OF VERSE"</text>
+
+  <!-- ==================== VIEW 4: SLIPCASE BACK FACE ==================== -->
+
+  <text x="1100" y="850" text-anchor="middle" class="panel-label">SLIPCASE BACK FACE</text>
+  <text x="1100" y="866" text-anchor="middle" class="note">Not visible when shelved — no foil</text>
+
+  <rect x="875" y="885" width="450" height="100" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+  <text x="1100" y="940" text-anchor="middle" fill="#555" font-family="'Segoe UI', sans-serif" font-size="12">NO FOIL</text>
+  <text x="1100" y="955" text-anchor="middle" class="note" fill="#777">(plain black Brillianta)</text>
+
+  <!-- Open side label on back face -->
+  <line x1="875" y1="885" x2="875" y2="985" class="open-edge" opacity="0.4"/>
+  <text x="865" y="940" text-anchor="end" class="note" fill="#cc6600">open side</text>
+
+  <!-- ==================== SPECS BOX ==================== -->
+  <rect x="50" y="1025" width="1400" height="60" rx="5" fill="#fff" stroke="#ddd" stroke-width="1"/>
+  <text x="70" y="1045" class="spec" font-weight="bold">Slipcase Material:</text>
+  <text x="200" y="1045" class="spec">Black Brillianta (outside) + Black Prestige (inside)</text>
+  <text x="70" y="1062" class="spec" font-weight="bold">Foil:</text>
+  <text x="200" y="1062" class="spec">Silver gloss · Front face: V emblem + title + subtitle · Fore-edge: V emblem + title (same dies as book spine)</text>
+  <text x="750" y="1078" text-anchor="middle" class="note">
+    Slipcase production: Jay Guitierrez (602-570-8218) · Dimensions from mock-up · Book spine visible through open side
+  </text>
+
+</svg>

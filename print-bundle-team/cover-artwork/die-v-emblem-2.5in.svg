@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  FOIL STAMPING DIE ARTWORK
+  Element: Verse "V" Emblem — 2.5" wide
+  Used on: Book front cover, Slipcase front face
+  Foil: Silver gloss (single color)
+
+  Specifications:
+    - Solid black on white (black = stamp area)
+    - All artwork is vector paths (no live fonts)
+    - Dimensions: 2.5" x 2.5" at 100% actual size
+    - Minimum detail well above 0.75mm for textured substrate
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2.5in" height="2.5in"
+     viewBox="0 0 180 180">
+  <rect width="180" height="180" fill="white"/>
+  <path d="M 0,0 L 39.6,0 L 95.4,111.6 L 140.4,25.2 L 108,0 L 180,0 L 90,180 Z" fill="black"/>
+</svg>
