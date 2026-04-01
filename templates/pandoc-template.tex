@@ -217,6 +217,15 @@
 \clubpenalty=10000
 \setlist{noitemsep, topsep=0.5em}
 
+% Prevent body text overflow: allow LaTeX to stretch inter-word spaces
+% rather than letting long inline code push text past the margin
+\emergencystretch=3em
+\tolerance=200
+
+% Allow breaks inside inline \texttt{} so long identifiers and specifier
+% chains don't force body paragraphs to overflow.
+\DeclareRobustCommand{\texttt}[1]{{\ttfamily #1}}
+
 %% ============================================================
 %% UNICODE FALLBACK FONTS (deferred to avoid microtype conflict)
 %% ============================================================

@@ -257,7 +257,7 @@
 
 % Use smaller font in tables so wide tables (e.g. precedence table) fit
 \usepackage{etoolbox}
-\AtBeginEnvironment{longtable}{\small}
+\AtBeginEnvironment{longtable}{\scriptsize}
 
 % Pandoc 3.x longtable compatibility: define missing 'none' counter
 \makeatletter
@@ -302,6 +302,17 @@
 \widowpenalty=10000
 \clubpenalty=10000
 \setlist{noitemsep, topsep=0.5em}
+
+% Prevent body text overflow: allow LaTeX to stretch inter-word spaces
+% rather than letting long inline code push text past the margin
+\emergencystretch=5em
+\tolerance=400
+
+% Allow breaks inside inline \texttt{} so long identifiers and specifier
+% chains don't force body paragraphs to overflow. We redefine \texttt to
+% use \ttfamily in horizontal mode (allowing LaTeX to break the line
+% around the monospace text) rather than wrapping in an unbreakable \hbox.
+\DeclareRobustCommand{\texttt}[1]{{\ttfamily #1}}
 
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
