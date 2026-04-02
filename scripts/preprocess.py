@@ -364,12 +364,19 @@ def fix_print_overflows(content: str) -> str:
             'GetPhysicsComponent(Comp:component)\n'
             '        <computes><decides>:physics_component ='
         ),
-        # Ch11 Classes: FindDescendantEntities signature
+        # Ch11 Classes: FindDescendantEntities signature (returns []entity_type)
         (
-            '      FindDescendantEntities(entity_type:castable_subtype(entity)):generator(entity_type)',
+            '      FindDescendantEntities(entity_type:castable_subtype(entity)):[]entity_type',
             '      FindDescendantEntities(\n'
             '              entity_type:castable_subtype(entity)\n'
-            '      ):generator(entity_type)'
+            '      ):[]entity_type'
+        ),
+        # Ch12 Types: CreateAndCast signature
+        (
+            'CreateAndCast(CompType:castable_concrete_subtype(component)):component =',
+            'CreateAndCast(\n'
+            '        CompType:castable_concrete_subtype(component)\n'
+            '):component ='
         ),
         # Ch14 Effects: SelectFunction return type
         (
@@ -408,22 +415,22 @@ def fix_print_overflows(content: str) -> str:
         ),
         # Ch17 Modules: Fully qualified Calculate
         (
-            '        (/YourGame/game_system/calculator:)Calculate((local:)Input:(/Verse.org/Verse:)int):(/Verse.org/Verse:)int =',
-            '        (/YourGame/game_system/calculator:)Calculate(\n'
+            '        (/YourGame/GameSystem/Calculator:)Calculate((local:)Input:(/Verse.org/Verse:)int):(/Verse.org/Verse:)int =',
+            '        (/YourGame/GameSystem/Calculator:)Calculate(\n'
             '                (local:)Input:(/Verse.org/Verse:)int\n'
             '        ):(/Verse.org/Verse:)int ='
         ),
         # Ch17 Modules: long arithmetic with qualified names
         (
-            '            (local:)Input * (/YourGame/game_system/calculator:)Multiplier + (/YourGame/game_system:)BaseValue',
+            '            (local:)Input * (/YourGame/GameSystem/Calculator:)Multiplier + (/YourGame/GameSystem:)BaseValue',
             '            (local:)Input *\n'
-            '                (/YourGame/game_system/calculator:)Multiplier +\n'
-            '                (/YourGame/game_system:)BaseValue'
+            '                (/YourGame/GameSystem/Calculator:)Multiplier +\n'
+            '                (/YourGame/GameSystem:)BaseValue'
         ),
         # Ch17 Modules: Multiplier declaration
         (
-            '        (/YourGame/game_system/calculator:)Multiplier:(/Verse.org/Verse:)int = 2',
-            '        (/YourGame/game_system/calculator:)Multiplier:\n'
+            '        (/YourGame/GameSystem/Calculator:)Multiplier:(/Verse.org/Verse:)int = 2',
+            '        (/YourGame/GameSystem/Calculator:)Multiplier:\n'
             '                (/Verse.org/Verse:)int = 2'
         ),
         # Ch17 Modules: GetPlayerLimit qualified
