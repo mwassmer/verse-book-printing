@@ -257,7 +257,12 @@
 
 % Use smaller font in tables so wide tables (e.g. precedence table) fit
 \usepackage{etoolbox}
-\AtBeginEnvironment{longtable}{\scriptsize}
+% Reduce font and cell padding in tables to prevent wide tables from overflowing.
+% Some tables (precedence, effects) have 5-6 columns with inline code.
+% The widest table (operator precedence, 6 cols) extends ~36pt into the outer
+% margin at \scriptsize — this stays within the physical page and won't be
+% cut at the trim line, but the printer may flag it.
+\AtBeginEnvironment{longtable}{\scriptsize\setlength{\tabcolsep}{2pt}\hfuzz=55pt}
 
 % Pandoc 3.x longtable compatibility: define missing 'none' counter
 \makeatletter

@@ -324,6 +324,135 @@ def get_part_for_chapter(filename: str) -> str:
     return None
 
 
+def fix_print_overflows(content: str) -> str:
+    """Apply line breaks to code lines that overflow the print margins.
+
+    The 7x10" page with 0.875"/0.75" margins gives ~5.375" text width.
+    At JetBrains Mono Scale=0.85, about 73 monospace chars fit per line.
+    Lines longer than this overflow in the PDF.
+
+    These are pure formatting changes — identical content wrapped differently.
+    Each replacement is a specific long line → its line-broken equivalent.
+    """
+    # Each tuple is (original_line, replacement_with_breaks)
+    # Only applied inside code blocks (``` fenced blocks)
+    replacements = [
+        # Ch1 Overview: FilterItems signature
+        (
+            '    FilterItems(Predicate:type{_(:game_item)<decides>:void}):[]game_item =',
+            '    FilterItems(\n'
+            '            Predicate:type{_(:game_item)<decides>:void}\n'
+            '    ):[]game_item ='
+        ),
+        # Ch4 Containers: persistent_class with long specifier chain
+        (
+            'persistent_class := class<unique><allocates><computes><persistent><module_scoped_var_weak_map_key> {}',
+            'persistent_class := class<unique><allocates>\n'
+            '        <computes><persistent>\n'
+            '        <module_scoped_var_weak_map_key> {}'
+        ),
+        # Ch4 Containers: key_class with same pattern
+        (
+            'key_class := class<unique><allocates><computes><persistent><module_scoped_var_weak_map_key> {}',
+            'key_class := class<unique><allocates>\n'
+            '        <computes><persistent>\n'
+            '        <module_scoped_var_weak_map_key> {}'
+        ),
+        # Ch11 Classes: GetPhysicsComponent signature
+        (
+            'GetPhysicsComponent(Comp:component)<computes><decides>:physics_component =',
+            'GetPhysicsComponent(Comp:component)\n'
+            '        <computes><decides>:physics_component ='
+        ),
+        # Ch11 Classes: FindDescendantEntities signature
+        (
+            '      FindDescendantEntities(entity_type:castable_subtype(entity)):generator(entity_type)',
+            '      FindDescendantEntities(\n'
+            '              entity_type:castable_subtype(entity)\n'
+            '      ):generator(entity_type)'
+        ),
+        # Ch14 Effects: SelectFunction return type
+        (
+            'SelectFunction(UseFailable:logic):type{_(:int)<computes><decides>:int} =',
+            'SelectFunction(UseFailable:logic):\n'
+            '        type{_(:int)<computes><decides>:int} ='
+        ),
+        # Ch17 Modules: Fully qualified Function
+        (
+            '(/YourPackage:)Function((local:)X:(/Verse.org/Verse:)int):(/Verse.org/Verse:)int = (local:)X',
+            '(/YourPackage:)Function(\n'
+            '        (local:)X:(/Verse.org/Verse:)int\n'
+            '):(/Verse.org/Verse:)int = (local:)X'
+        ),
+        # Ch17 Modules: Fully qualified ProcessValue
+        (
+            '(/YourPackage:)ProcessValue((local:)Input:(/Verse.org/Verse:)int, (local:)Multiplier:(/Verse.org/Verse:)int):(/Verse.org/Verse:)int =',
+            '(/YourPackage:)ProcessValue(\n'
+            '        (local:)Input:(/Verse.org/Verse:)int,\n'
+            '        (local:)Multiplier:(/Verse.org/Verse:)int\n'
+            '):(/Verse.org/Verse:)int ='
+        ),
+        # Ch17 Modules: Fully qualified TakeDamage
+        (
+            '    (/YourPackage/player_class:)TakeDamage((local:)Amount:(/Verse.org/Verse:)float):(/Verse.org/Verse:)void =',
+            '    (/YourPackage/player_class:)TakeDamage(\n'
+            '            (local:)Amount:(/Verse.org/Verse:)float\n'
+            '    ):(/Verse.org/Verse:)void ='
+        ),
+        # Ch17 Modules: set Health = Health - Amount (long qualified)
+        (
+            '        set (/YourPackage/player_class:)Health = (/YourPackage/player_class:)Health - (local:)Amount',
+            '        set (/YourPackage/player_class:)Health =\n'
+            '            (/YourPackage/player_class:)Health -\n'
+            '            (local:)Amount'
+        ),
+        # Ch17 Modules: Fully qualified Calculate
+        (
+            '        (/YourGame/game_system/calculator:)Calculate((local:)Input:(/Verse.org/Verse:)int):(/Verse.org/Verse:)int =',
+            '        (/YourGame/game_system/calculator:)Calculate(\n'
+            '                (local:)Input:(/Verse.org/Verse:)int\n'
+            '        ):(/Verse.org/Verse:)int ='
+        ),
+        # Ch17 Modules: long arithmetic with qualified names
+        (
+            '            (local:)Input * (/YourGame/game_system/calculator:)Multiplier + (/YourGame/game_system:)BaseValue',
+            '            (local:)Input *\n'
+            '                (/YourGame/game_system/calculator:)Multiplier +\n'
+            '                (/YourGame/game_system:)BaseValue'
+        ),
+        # Ch17 Modules: Multiplier declaration
+        (
+            '        (/YourGame/game_system/calculator:)Multiplier:(/Verse.org/Verse:)int = 2',
+            '        (/YourGame/game_system/calculator:)Multiplier:\n'
+            '                (/Verse.org/Verse:)int = 2'
+        ),
+        # Ch17 Modules: GetPlayerLimit qualified
+        (
+            '    (/YourPackage/config:)GetPlayerLimit<public>():(/Verse.org/Verse:)int =',
+            '    (/YourPackage/config:)GetPlayerLimit<public>():\n'
+            '            (/Verse.org/Verse:)int ='
+        ),
+        # Ch17 Modules: MaxPlayers qualified declaration
+        (
+            '    (/YourPackage/config:)MaxPlayers<public>:(/Verse.org/Verse:)int = 100',
+            '    (/YourPackage/config:)MaxPlayers<public>:\n'
+            '            (/Verse.org/Verse:)int = 100'
+        ),
+        # Ch17 Modules: Error message
+        (
+            'Error: Cannot assign (/Verse.org/Verse:)string to (/Verse.org/Verse:)int at line 42',
+            'Error: Cannot assign\n'
+            '    (/Verse.org/Verse:)string to\n'
+            '    (/Verse.org/Verse:)int at line 42'
+        ),
+    ]
+
+    for old, new in replacements:
+        content = content.replace(old, new)
+
+    return content
+
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: preprocess.py <docs_directory> [output_file]")
@@ -371,6 +500,11 @@ def main():
             chapter_num += 1
 
     final_content = '\n'.join(combined_content)
+
+    # Apply print-specific line breaks to code lines that overflow
+    # the 7x10" page margins. These are formatting-only changes —
+    # identical content, just wrapped differently for print.
+    final_content = fix_print_overflows(final_content)
 
     if output_file:
         output_file.write_text(final_content, encoding='utf-8')
