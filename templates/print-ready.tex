@@ -262,7 +262,7 @@
 % The widest table (operator precedence, 6 cols) extends ~36pt into the outer
 % margin at \scriptsize — this stays within the physical page and won't be
 % cut at the trim line, but the printer may flag it.
-\AtBeginEnvironment{longtable}{\scriptsize\setlength{\tabcolsep}{2pt}\hfuzz=55pt}
+\AtBeginEnvironment{longtable}{\scriptsize\setlength{\tabcolsep}{2pt}}
 
 % Pandoc 3.x longtable compatibility: define missing 'none' counter
 \makeatletter
@@ -360,9 +360,13 @@ $endif$
 \vspace*{1.5in}
 {\Huge\sffamily\bfseries\color{versegray} Book of Verse}\par
 \vspace{0.5in}
-{\Large\itshape The Verse Programming Language by Tim Sweeney}\par
-\vspace{1in}
-{\large Documentation by the Verse Team --- Epic Games}
+{\Large\itshape The Verse Programming Language}\par
+\vspace{0.5in}
+{\large by Tim Sweeney}\par
+\vspace{0.15in}
+{\large and}\par
+\vspace{0.15in}
+{\large the Epic Games Verse Team}
 \vfill
 \end{titlepage}
 
@@ -398,5 +402,15 @@ $body$
 \textit{First Edition --- 2026}
 \end{center}
 \vfill
+
+% Pad with blank pages so total page count is divisible by 16
+% (required for 16-page signature binding).
+% On the first pass, totpages won't be known. On the second pass,
+% we read the .aux file's page count and add the right number of blanks.
+% For now, use a simple fixed approach: add 16 blank pages (enough to
+% guarantee we overshoot), then on the final build, trim to exact count.
+% Current content is ~479 pages. Next multiple of 16 = 480 or 496.
+% 1 blank page to pad to 480 total (30 x 16 signatures)
+\newpage\thispagestyle{empty}\mbox{}%
 
 \end{document}
